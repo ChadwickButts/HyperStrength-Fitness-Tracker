@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import { addExercise } from "../lib/actions";
 
 export default function ExerciseForm() {
 
@@ -10,7 +11,9 @@ export default function ExerciseForm() {
         setShowForm(!showForm);
     }
 
-    const addExercise = async (formData: FormData) => { console.log(formData) };
+    // const addExercise = async (formData: FormData) => { 
+    //     console.log(formData);        
+    // };
 
     return (
         <div>
