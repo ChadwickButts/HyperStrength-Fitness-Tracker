@@ -1,54 +1,52 @@
-import { ChangeEvent, Dispatch, MouseEventHandler, useState } from 'react';
-import { exercises } from '../lib/placeholder-data';
+'use client'
+
+import { useEffect, Dispatch, useState, use, Usable } from 'react';
 import { exerciseData, exercisesAction } from '../lib/definitions';
 
-export default function AddExercise(props : { dispatchExercise: Dispatch<exercisesAction> } ) {
+export default function AddExercise({ dispatchExercise, exerciseList } : { dispatchExercise: Dispatch<exercisesAction> , exerciseList: Promise<any[] | null> }) {
+    const [searchValue, setSearchValue] = useState('');
+    const [searchResults, setSearchResults] = useState<typeof exerciseLibrary>([]);
 
-    const [showAddExercise, setShowAddExercise] = useState(false);
-    const [searchResults, setSearchResults] = useState<typeof exercises>([]);
+    const exerciseLibrary: exerciseData[] | null = use(exerciseList);
 
-    
-    const handleShowAddExercise = () => {
-        setShowAddExercise(!showAddExercise);
-    }
-    
     const handleAddExercise = (exercise: exerciseData) => {
         let exerciseDataAction = {
             type: 'add',
             ...exercise
         }
-        props.dispatchExercise(exerciseDataAction)
-        console.log(exercise);
+        dispatchExercise(exerciseDataAction);
     }
     
-    const searchForExercise = (event: ChangeEvent<HTMLInputElement>) => {
-        let { value } = event.target;
-        let result : typeof exercises = exercises.filter(exercise => {
-            if (value) {
-                return exercise.name.toLowerCase().includes(value.toLowerCase());
+    useEffect(() => {
+        let result: exerciseData[] | null = exerciseLibrary?.filter(exercise => {
+            if (searchValue) {
+                return exercise.name.toLowerCase().includes(searchValue.toLowerCase());
             } else {
                 return false;
             }
-        });
+        })!;
 
         setSearchResults(result);
-    }
+    }, [searchValue])
 
     return <>
-        <button type="button" onClick={handleShowAddExercise}>Add Exercise</button>
-        { showAddExercise && <div>
-            <input id="exercises-search" type='text' onChange={searchForExercise} />
-            <ul>
-                { searchResults.map( (exer, ndx) => {
-                    return <div key={ndx}>
-                        <span>{exer.name}</span>
-                        <button type='button' onClick={() => {
-                            handleAddExercise(exer)
-                        }}>Add</button>
-                    </div>
-                })}
-            </ul>
-        </div> }
+        <p>
+            <label htmlFor='exercises-search'>Search Exercises: </label>
+            <input id="exercises-search" type='text' onChange={event => setSearchValue(event.target.value)} value={searchValue} />
+            <button type='button' onClick={() => {
+                setSearchValue('');
+            }}>Clear</button>
+        </p>
+        <ul>
+            {searchResults?.map((exer: exerciseData, ndx: number) => {
+                return <div key={ndx}>
+                    <span>{exer.name}</span>
+                    <button type='button' onClick={() => {
+                        handleAddExercise(exer)
+                    }}>Add</button>
+                </div>
+            })}
+        </ul>
     </>
-    
+
 }

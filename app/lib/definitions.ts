@@ -8,19 +8,29 @@ export type exercise = {
 }
 
 export type exerciseData = {
-    name: string
+    name: string,
     force: string | null,
-    level: string,
+    level: string | null,
     mechanic: string | null,
     equipment: string | null,
-    primaryMuscles: Array<string>,
-    secondaryMuscles: Array<string>,
-    instructions: Array<string>,
-    category: string,
-    images: Array<string>,
+    primaryMuscles: Array<string> | null,
+    secondaryMuscles: Array<string> | null,
+    instructions: Array<string> | null,
+    category: string | null,
+    images: Array<string> | null,
     id: string
 }
 
 export type exercisesAction = exerciseData & { 
     type: string 
+}
+
+export type workout = {
+    name: string,
+    date: string,
+    exercises: Array<exerciseData>
+}
+
+export type workoutAction = workout & {
+    type: string
 }

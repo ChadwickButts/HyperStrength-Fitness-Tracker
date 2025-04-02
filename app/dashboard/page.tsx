@@ -1,8 +1,12 @@
 import Link from "next/link"
 import ExerciseForm from "../ui/exercise-form"
 import PlanWorkout from "../ui/plan-workout"
+import { getExercises } from "../lib/api/exercises"
+import { Suspense, Usable } from "react";
 
-export default function Page() {
+export default async function Page() {
+
+    const exercisesLibrary = getExercises();
 
     return (
         <div>
@@ -16,8 +20,9 @@ export default function Page() {
                 <button>Workout History</button> */}
             </nav>
             <main>
-                <PlanWorkout />
-                
+                <Suspense fallback={<div>Loading...</div>}>
+                    <PlanWorkout exerciseLib={exercisesLibrary} />
+                </Suspense>
                 {/* <section>Progress</section>
                 <section>Workout Schedule</section>
                 <section>Best Lift This Week</section>
