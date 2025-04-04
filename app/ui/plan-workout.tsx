@@ -7,11 +7,12 @@ import ExerciseLoadIntensityForm from "./exercise-load-intensity-form";
 import Workout from "./workout";
 
 import {
-    Box, Button, FormControl, FormControlLabel, FormLabel, Grid, InputLabel, List,
-    ListItem, ListItemText, ListSubheader, OutlinedInput, Paper, Radio, RadioGroup, Stack,
-    ToggleButton,
+    Box, Button, FormControl, Grid, IconButton, InputLabel, List,
+    ListItem, ListItemText, ListSubheader, OutlinedInput, Paper, Stack,
     Typography
 } from '@mui/material';
+
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
@@ -57,20 +58,19 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
     }
 
     return (
-        <Grid container spacing={2}>
-            <Grid size={6}>
-                <Stack spacing={2}>
-                    <Box>
-                        <div>
-                            <Button variant={showPlanWorkout ? "outlined" : "contained"} onClick={handlePlanWorkoutClick} >Plan a workout</Button>
-                        </div>
-                    </Box>
-                    {showPlanWorkout && 
-                        <Box component="section">
-                            <form action={saveWorkout} ref={formRef}>
-                                <Grid container>
-                                <Grid size={6}>
-                                    <FormControl size="small">
+        <Stack spacing={2}>
+            <Box>
+                <div>
+                    <Button variant={showPlanWorkout ? "outlined" : "contained"} onClick={handlePlanWorkoutClick} >Plan a workout</Button>
+                </div>
+            </Box>
+            {showPlanWorkout && <Grid container spacing={1}>
+                <Grid size={6} >
+                    <Paper sx={{ p: 2 }} >
+                        <Grid container spacing={1}>
+                            <Grid size={6}>
+                                <form action={saveWorkout} ref={formRef}>
+                                    <FormControl size="small" >
                                         <DatePicker
                                             name="workoutDate"
                                             label="Date"
@@ -88,22 +88,26 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
                                         <InputLabel htmlFor="workoutName">Workout Name</InputLabel>
                                         <OutlinedInput label="Workout Name" name="workoutName" type="text" size="small" defaultValue={'Workout'} />
                                     </FormControl>
-                                
 
-                                <Box component="div" sx={{ py: 2 }}>
-                                    <Stack spacing={2} direction="row">
-                                        <Button type="button" variant={showAddExercise ? 'outlined' : 'contained'} onClick={handleShowAddExercise}>Add Exercise</Button>
-                                        <Button type="submit" variant="contained" disabled={exercises.length === 0}>Save</Button>
-                                    </Stack>
-                                </Box>
-                                </Grid>                                
-                                <Grid size={6}>
+
+                                    <Box component="div" sx={{ py: 2 }}>
+                                        <Stack spacing={2} direction="row">
+                                            <Button type="button" variant={showAddExercise ? 'outlined' : 'contained'} onClick={handleShowAddExercise}>Add Exercise</Button>
+                                            <Button type="submit" variant="contained" disabled={exercises.length === 0}>Save</Button>
+                                        </Stack>
+                                    </Box>
+                                </form>
+
+                                {showAddExercise && <AddExercise dispatchExercise={exercisesDispatch} exerciseList={exerciseLib} />}
+                            </Grid>
+                            <Grid size={6}>
                                 {
                                     exercises.length === 0 ?
                                         <Typography variant="body2" sx={{ p: 2 }}>
                                             No Exercises Added
                                         </Typography>
                                         :
+                                        <Box overflow="scroll" maxHeight={525}>
                                         <List dense={true}
                                             subheader={
                                                 <ListSubheader component="div" id="workout-exercise-list">
@@ -113,7 +117,7 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
                                                 exercises?.map((exerciseObj: exerciseData, ndx: number) => {
                                                     return <ListItem key={ndx}>
                                                         <ListItemText>{exerciseObj.name}</ListItemText>
-                                                        <Button type="button" size="small" variant="outlined" onClick={() => {
+                                                        <IconButton size="small" color="error" onClick={() => {
                                                             let exerciseAction = {
                                                                 type: 'delete',
                                                                 ...exerciseObj,
@@ -121,39 +125,38 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
                                                             }
 
                                                             exercisesDispatch(exerciseAction);
-                                                        }}>Remove</Button>
+                                                        }}>
+                                                            <RemoveCircleIcon />
+                                                        </IconButton>
                                                     </ListItem>
                                                 })
                                             }
                                         </List>
+                                        </Box>
                                 }
-                                </Grid>
-                                {showAddExercise && <Grid size={12}><AddExercise dispatchExercise={exercisesDispatch} exerciseList={exerciseLib} /></Grid>}
-                                <br />
-
-                               
-                                {/* <ExerciseLoadIntensityForm exerciseDispatch={dispatch} /> */}
-                                </Grid>
-                            </form>
-                        </Box>}
-
-                    <Box>
-                        <div >
-                            <h3>Scheduled Workouts:</h3>
-                            {workouts.length === 0 ? <span>No workouts planned</span> :
-                                <Stack spacing={2} direction="row" overflow="scroll">
-                                    {
-                                        workouts?.map((workout: workout, ndx: number) => {
-                                            return <article key={ndx}><Workout data={workout} /></article>
-                                        })
-                                    }
-                                </Stack>
-                            }
-                        </div>
-                    </Box>
-                </Stack>
+                            </Grid>
+                            {/* <ExerciseLoadIntensityForm exerciseDispatch={dispatch} /> */}
+                        </Grid>
+                    </Paper>
+                </Grid>
             </Grid>
-        </Grid>
+            }
+
+            <Box>
+                <div >
+                    <h3>Scheduled Workouts:</h3>
+                    {workouts.length === 0 ? <span>No workouts planned</span> :
+                        <Stack spacing={2} direction="row" overflow="scroll">
+                            {
+                                workouts?.map((workout: workout, ndx: number) => {
+                                    return <article key={ndx}><Workout data={workout} /></article>
+                                })
+                            }
+                        </Stack>
+                    }
+                </div>
+            </Box>
+        </Stack>
     )
 
     function exercisesReducer(exercises: Array<exerciseData>, action: exercisesAction) {

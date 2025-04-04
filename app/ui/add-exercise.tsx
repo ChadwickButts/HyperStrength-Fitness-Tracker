@@ -3,11 +3,15 @@
 import { useEffect, Dispatch, useState, use } from 'react';
 import { exerciseData, exercisesAction } from '../lib/definitions';
 
-import { Button, FormControl, InputAdornment, InputLabel,
-    List, ListItem, ListItemText, OutlinedInput 
-    } from '@mui/material';
+import {
+    Box,
+    Button, FormControl, IconButton, InputAdornment, InputLabel,
+    List, ListItem, ListItemText, OutlinedInput,
+    Stack
+} from '@mui/material';
 
-import AddIcon from '@mui/icons-material/Add';
+import AddCircle from '@mui/icons-material/AddCircle';
+import { FixedSizeList } from 'react-window';
 
 export default function AddExercise({ dispatchExercise, exerciseList }: { dispatchExercise: Dispatch<exercisesAction>, exerciseList: Promise<any[] | null> }) {
     const [searchValue, setSearchValue] = useState('');
@@ -36,37 +40,37 @@ export default function AddExercise({ dispatchExercise, exerciseList }: { dispat
         setSearchResults(result);
     }, [searchValue])
 
-    return <>
-        <div>
-            <FormControl variant='outlined' size='small' fullWidth>
-                <InputLabel htmlFor="exercises-search">Search Exercises</InputLabel>
-                <OutlinedInput
-                    id="exercises-search"
-                    label="Search Exercises"
-                    onChange={event => setSearchValue(event.target.value)}
-                    value={searchValue}
-                    endAdornment={
-                        <InputAdornment position="end">
-                            <Button type='button' variant='text' onClick={() => {
-                                setSearchValue('');
-                            }}>Clear</Button>
-                        </InputAdornment>
-                    }
-                />
-            </FormControl>
-        </div>
+
+    return <Stack spacing={2}>
+        <FormControl variant='outlined' size='small' fullWidth>
+            <InputLabel htmlFor="exercises-search">Search Exercises</InputLabel>
+            <OutlinedInput
+                id="exercises-search"
+                label="Search Exercises"
+                onChange={event => setSearchValue(event.target.value)}
+                value={searchValue}
+                endAdornment={
+                    <InputAdornment position="end">
+                        <Button type='button' variant='text' onClick={() => {
+                            setSearchValue('');
+                        }}>Clear</Button>
+                    </InputAdornment>
+                }
+            />
+        </FormControl>
+        <Box overflow="scroll" maxHeight={300}>
         <List dense={true}>
             {searchResults?.map((exer: exerciseData, ndx: number) => {
                 return <ListItem key={ndx} >
                     <ListItemText>{exer.name}</ListItemText>
-                    <Button variant="contained" size='small' onClick={() => {
+                    <IconButton size='small' color='primary' onClick={() => {
                         handleAddExercise(exer, ndx)
-                    }} endIcon={<AddIcon />}>
-                        Add
-                    </Button>
+                    }} >
+                        <AddCircle />
+                    </IconButton>
                 </ListItem>
             })}
         </List >
-    </>
-
+        </Box>
+    </Stack>
 }
