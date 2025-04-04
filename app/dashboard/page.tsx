@@ -3,13 +3,14 @@ import ExerciseForm from "../ui/exercise-form"
 import PlanWorkout from "../ui/plan-workout"
 import { getExercises } from "../lib/api/exercises"
 import { Suspense, Usable } from "react";
+import { Container } from "@mui/material";
 
 export default async function Page() {
 
     const exercisesLibrary = getExercises();
 
     return (
-        <div>
+        <Container>
             <nav>
                 <br/>
                 {/* <ExerciseForm /> */}
@@ -28,6 +29,6 @@ export default async function Page() {
                 <section>Best Lift This Week</section>
                 <section>Last PR</section> */}
             </main>
-        </div> 
+        </Container> 
     )
 }

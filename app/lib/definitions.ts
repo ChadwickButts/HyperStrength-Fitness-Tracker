@@ -22,7 +22,8 @@ export type exerciseData = {
 }
 
 export type exercisesAction = exerciseData & { 
-    type: string 
+    type: string,
+    clientId: number
 }
 
 export type workout = {

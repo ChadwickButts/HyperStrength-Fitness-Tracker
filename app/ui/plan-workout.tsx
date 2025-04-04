@@ -6,7 +6,15 @@ import AddExercise from "./add-exercise";
 import ExerciseLoadIntensityForm from "./exercise-load-intensity-form";
 import Workout from "./workout";
 
-import { Button, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from '@mui/material';
+import {
+    Box, Button, FormControl, FormControlLabel, FormLabel, Grid, InputLabel, List,
+    ListItem, ListItemText, ListSubheader, OutlinedInput, Paper, Radio, RadioGroup, Stack,
+    ToggleButton,
+    Typography
+} from '@mui/material';
+
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
 
 export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[] | null> }) {
 
@@ -15,16 +23,17 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
     const [showPlanWorkout, setShowPlanWorkout] = useState(false);
     const [exercises, exercisesDispatch] = useReducer(exercisesReducer, []);
     const [workouts, workoutsDispatch] = useReducer(workoutsReducer, []);
+
     const handlePlanWorkoutClick = () => {
         setShowPlanWorkout(!showPlanWorkout);
     };
-    const todaysDate = new Date(Date()).toISOString().slice(0,10);
+
+    const todaysDate = new Date(Date()).toISOString().slice(0, 10);
 
     const saveWorkout = async (formData: FormData) => {
         console.log(formData);
-        let scheduledDate = new Date(String(formData.get('workoutDate')) + 'T00:00:00')
-            .toDateString();
-        
+        let scheduledDate: string = formData.get('workoutDate')!.toString();
+
         workoutsDispatch({
             type: 'add',
             date: scheduledDate,
@@ -32,12 +41,13 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
             exercises: exercises,
         })
 
-        let action = { 
-            type: 'reset', 
+        let action = {
+            type: 'reset',
+            clientId: 0,
             ...exercises[0]
         };
         exercisesDispatch(action);
-        
+
         setShowAddExercise(false);
         formRef.current?.reset();
     }
@@ -47,75 +57,107 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
     }
 
     return (
-        <div>
-            <h3>Scheduled Workouts:</h3>
-            <section >
-            { workouts.length === 0 ? <span>No workouts planned</span> : 
-                <ul >
-                {
-                    workouts?.map((workout: workout, ndx: number) => { 
-                        return <li key={ndx}><Workout data={workout} /></li>
-                    })
-                }
-                </ul>
-            }      
-            </section>          
-            <br/>
-            <br/>
+        <Grid container spacing={2}>
+            <Grid size={6}>
+                <Stack spacing={2}>
+                    <Box>
+                        <div>
+                            <Button variant={showPlanWorkout ? "outlined" : "contained"} onClick={handlePlanWorkoutClick} >Plan a workout</Button>
+                        </div>
+                    </Box>
+                    {showPlanWorkout && 
+                        <Box component="section">
+                            <form action={saveWorkout} ref={formRef}>
+                                <Grid container>
+                                <Grid size={6}>
+                                    <FormControl size="small">
+                                        <DatePicker
+                                            name="workoutDate"
+                                            label="Date"
+                                            defaultValue={dayjs(todaysDate)}
+                                            slotProps={{
+                                                textField: {
+                                                    variant: 'standard'
+                                                }
+                                            }}
+                                        />
+                                    </FormControl>
+                                    <br />
+                                    <br />
+                                    <FormControl>
+                                        <InputLabel htmlFor="workoutName">Workout Name</InputLabel>
+                                        <OutlinedInput label="Workout Name" name="workoutName" type="text" size="small" defaultValue={'Workout'} />
+                                    </FormControl>
+                                
 
-            <div>
-            <Button variant="contained" onClick={handlePlanWorkoutClick} >Plan a workout</Button>
-            {showPlanWorkout && <main >
-                <form action={saveWorkout} ref={formRef}>
-                    <div>
-                        <label htmlFor="workoutDate">Date: </label>
-                        <input name="workoutDate" type="date" defaultValue={todaysDate} />
-                        <br/>
-                        <label htmlFor="workoutName">Workout Name: </label>
-                        <TextField name="workoutName" type="text" defaultValue="" />
-                        <br/>
-                        <FormLabel id="metric-radio-buttons">Metric</FormLabel>
-                        <RadioGroup
-                            aria-labelledby="metric-radio-buttons"
-                            defaultValue="lbs"
-                            name="metric"
-                        >
-                            <FormControlLabel value="lbs" control={<Radio />} label="lbs" />
-                            <FormControlLabel value="kg" control={<Radio />} label="kg" />
-                        </RadioGroup>
-                    </div>    
-                    {
-                        exercises.length === 0 ? <p>No Exercises Added</p> :
-                        <ul> {
-                        exercises?.map((exerciseObj: exerciseData, ndx: number) => {
-                            return <li key={ndx}>
-                                {exerciseObj.name} 
-                                <button type="button" onClick={() =>{
-                                    let exerciseAction = {
-                                        type: 'delete',
-                                        ...exerciseObj
+                                <Box component="div" sx={{ py: 2 }}>
+                                    <Stack spacing={2} direction="row">
+                                        <Button type="button" variant={showAddExercise ? 'outlined' : 'contained'} onClick={handleShowAddExercise}>Add Exercise</Button>
+                                        <Button type="submit" variant="contained" disabled={exercises.length === 0}>Save</Button>
+                                    </Stack>
+                                </Box>
+                                </Grid>                                
+                                <Grid size={6}>
+                                {
+                                    exercises.length === 0 ?
+                                        <Typography variant="body2" sx={{ p: 2 }}>
+                                            No Exercises Added
+                                        </Typography>
+                                        :
+                                        <List dense={true}
+                                            subheader={
+                                                <ListSubheader component="div" id="workout-exercise-list">
+                                                    Exercises
+                                                </ListSubheader>
+                                            }> {
+                                                exercises?.map((exerciseObj: exerciseData, ndx: number) => {
+                                                    return <ListItem key={ndx}>
+                                                        <ListItemText>{exerciseObj.name}</ListItemText>
+                                                        <Button type="button" size="small" variant="outlined" onClick={() => {
+                                                            let exerciseAction = {
+                                                                type: 'delete',
+                                                                ...exerciseObj,
+                                                                clientId: ndx
+                                                            }
+
+                                                            exercisesDispatch(exerciseAction);
+                                                        }}>Remove</Button>
+                                                    </ListItem>
+                                                })
+                                            }
+                                        </List>
+                                }
+                                </Grid>
+                                {showAddExercise && <Grid size={12}><AddExercise dispatchExercise={exercisesDispatch} exerciseList={exerciseLib} /></Grid>}
+                                <br />
+
+                               
+                                {/* <ExerciseLoadIntensityForm exerciseDispatch={dispatch} /> */}
+                                </Grid>
+                            </form>
+                        </Box>}
+
+                    <Box>
+                        <div >
+                            <h3>Scheduled Workouts:</h3>
+                            {workouts.length === 0 ? <span>No workouts planned</span> :
+                                <Stack spacing={2} direction="row" overflow="scroll">
+                                    {
+                                        workouts?.map((workout: workout, ndx: number) => {
+                                            return <article key={ndx}><Workout data={workout} /></article>
+                                        })
                                     }
-
-                                    exercisesDispatch(exerciseAction);
-                                }}>Remove</button>
-                            </li>
-                        })
-                        } </ul>
-                    }
-                    
-                    <Button type="button" onClick={handleShowAddExercise}>Add Exercise</Button>
-                    <Button type="submit" disabled={exercises.length === 0}>Save</Button>
-
-                    {showAddExercise && <AddExercise dispatchExercise={exercisesDispatch} exerciseList={exerciseLib} />}
-                    {/* <ExerciseLoadIntensityForm exerciseDispatch={dispatch} /> */}
-                </form>
-            </main>}
-            </div>
-        </div>
+                                </Stack>
+                            }
+                        </div>
+                    </Box>
+                </Stack>
+            </Grid>
+        </Grid>
     )
 
     function exercisesReducer(exercises: Array<exerciseData>, action: exercisesAction) {
-        let { type, ...exerciseData } = action;
+        let { type, clientId, ...exerciseData } = action;
         switch (type) {
             case 'add': {
                 return [
@@ -124,8 +166,8 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
                 ]
             }
             case 'delete': {
-                return [ 
-                    ...exercises.filter(el => el.id !== exerciseData.id)
+                return [
+                    ...exercises.filter((el, ndx) => ndx !== clientId)
                 ]
             }
             case 'reset': {

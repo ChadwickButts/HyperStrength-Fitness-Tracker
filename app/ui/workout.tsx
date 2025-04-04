@@ -4,15 +4,10 @@ import { useState } from "react"
 import { exerciseData, workout } from "../lib/definitions"
 
 
-import { Card, CardContent, Typography, Button } from "@mui/material";
+import { Card, CardContent, List, ListItem, ListItemText, Typography, Button, CardActions, CardHeader, Collapse } from "@mui/material";
 
 
 export default function Workout(props: { data: workout }) {
-    const [showDetails, setShowDetails] = useState(false);
-
-    const handleShowDetailsClick = () => {
-        setShowDetails(!showDetails);
-    }
 
     const dateRender = new Date(props.data.date).toLocaleDateString(undefined, {
         weekday: 'short',
@@ -21,28 +16,20 @@ export default function Workout(props: { data: workout }) {
         day: 'numeric'
     });
 
-    return <Card sx={{ minWidth: 275 }}>
+    return <Card variant="outlined" sx={{ minWidth: 275, minHeight: 375}}>
+        <CardHeader title={props.data.name} subheader={dateRender} />
         <CardContent>
-        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-            Date Scheduled: {dateRender}
-        </Typography>
-        <Typography variant="h4" component="div">
-            {props.data.name}
-        </Typography>
-        {!showDetails ?
-            <Button type="button" onClick={handleShowDetailsClick}>show details</Button>
-            : <Button type="button" onClick={handleShowDetailsClick}>hide details</Button>
-        }
-        <Button type="button">Track Workout</Button>
-
-        {showDetails && <>
-            <ul>
+            <List dense={true}>
                 {props.data.exercises.map((exercise: exerciseData, ndx: number) => {
-                    return <li key={ndx}>{exercise.name}</li>
+                    return <ListItem key={ndx}>
+                        <ListItemText>{exercise.name}</ListItemText>
+                    </ListItem>
                 })}
-            </ul>
-        </>}
+            </List>
         </CardContent>
+        <CardActions>
+            <Button type="button" size="small">Track Workout</Button>
+        </CardActions>
     </Card>
 
 }
