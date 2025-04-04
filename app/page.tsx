@@ -1,13 +1,15 @@
-"use client";
-
-import { scan } from "react-scan";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/amplify/data/resource";
-import "./../app/app.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
+import "./../app/app.css";
 import "@aws-amplify/ui-react/styles.css";
+import { getExercisesClient, supabaseClient } from "@/utils/supabase/client";
+import { scan } from "react-scan";
 import PlanWorkout from "./ui/plan-workout";
+import { getExercises } from "./lib/api/exercises";
+import { Card, CardContent, Container, Paper, Stack } from "@mui/material";
+import { Suspense } from "react";
 
 if (typeof window !== 'undefined') {
   scan({
@@ -16,19 +18,33 @@ if (typeof window !== 'undefined') {
   });
 }
 
-Amplify.configure(outputs);
 
-const client = generateClient<Schema>();
+export default async function App() {
 
-
-export default function App() {
+  const exercisesLibrary = getExercises();
 
   return (
-      <body>
-        {/* <PlanWorkout /> */}
-      </body>
+    <Container sx={{ p: 2 }}>
+      <Stack spacing={2}>
+        <Paper>
+          <Card sx={{ p: 2 }}>
+            <CardContent>
+              This site is a companion for the book, Science of Strength Training:
+              Understand the Anatomy and Physiology to Change Your Life
+            </CardContent>
+          </Card>
+        </Paper>
+        <Suspense fallback={<div>Loading...</div>}>
+          <PlanWorkout exerciseLib={exercisesLibrary} />
+        </Suspense>
+      </Stack>
+    </Container>
+
   )
 }
+
+// Amplify.configure(outputs);
+// const client = generateClient<Schema>();
 
 // export default function App() {
 //   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);

@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 
 import AddCircle from '@mui/icons-material/AddCircle';
-import { FixedSizeList } from 'react-window';
 
 export default function AddExercise({ dispatchExercise, exerciseList }: { dispatchExercise: Dispatch<exercisesAction>, exerciseList: Promise<any[] | null> }) {
     const [searchValue, setSearchValue] = useState('');
