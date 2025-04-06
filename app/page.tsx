@@ -6,10 +6,12 @@ import "./../app/app.css";
 import "@aws-amplify/ui-react/styles.css";
 import { getExercisesClient, supabaseClient } from "@/utils/supabase/client";
 import { scan } from "react-scan";
-import PlanWorkout from "./ui/plan-workout";
-import { getExercises } from "./lib/api/exercises";
 import { Card, CardContent, Container, Paper, Stack } from "@mui/material";
 import { Suspense } from "react";
+
+import { getExercises, getWorkouts } from "./lib/api/exercises";
+import PlanWorkout from "./ui/plan-workout";
+import ScheduledWorkouts from "./ui/scheduled-workouts";
 
 if (typeof window !== 'undefined') {
   scan({
@@ -22,6 +24,7 @@ if (typeof window !== 'undefined') {
 export default async function App() {
 
   const exercisesLibrary = getExercises();
+  const scheduledWorkoutsLibrary = getWorkouts();
 
   return (
     <Container sx={{ p: 2 }}>
@@ -37,6 +40,7 @@ export default async function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <PlanWorkout exerciseLib={exercisesLibrary} />
         </Suspense>
+          <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary} exerciseLib={exercisesLibrary} />
       </Stack>
     </Container>
 

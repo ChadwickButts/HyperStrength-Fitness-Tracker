@@ -1,28 +1,29 @@
 'use client'
 
-import { useState } from "react"
-import { exerciseData, workout } from "../lib/definitions"
+import { use, useEffect, useState } from "react"
+import { exercise, exerciseData, workout } from "../lib/definitions"
 
 
 import { Card, CardContent, List, ListItem, ListItemText, Typography, Button, CardActions, CardHeader, Collapse } from "@mui/material";
 
 
-export default function Workout(props: { data: workout }) {
+export default function Workout({ data, exercises }: { data: workout, exercises: Promise<any[] | null> }) {
 
-    const dateRender = new Date(props.data.date).toLocaleDateString(undefined, {
+    const dateRender = new Date(data.date).toLocaleDateString(undefined, {
         weekday: 'short',
         year: 'numeric',
         month: 'long',
         day: 'numeric'
     });
 
-    return <Card variant="outlined" sx={{ minWidth: 275, minHeight: 375}}>
-        <CardHeader title={props.data.name} subheader={dateRender} />
+    return <Card variant="outlined" sx={{ minWidth: 275, minHeight: 375 }}>
+        <CardHeader title={data.name} subheader={dateRender} />
         <CardContent>
             <List dense={true}>
-                {props.data.exercises.map((exercise: exerciseData, ndx: number) => {
+                {data.exercises.map((exerciseID: string, ndx: number) => {
+                    
                     return <ListItem key={ndx}>
-                        <ListItemText>{exercise.name}</ListItemText>
+                        <ListItemText>{exerciseID}</ListItemText>
                     </ListItem>
                 })}
             </List>

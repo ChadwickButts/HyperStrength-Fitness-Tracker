@@ -27,9 +27,10 @@ export type exercisesAction = exerciseData & {
 }
 
 export type workout = {
+    id: string,
     name: string,
     date: string,
-    exercises: Array<exerciseData>
+    exercises: string[]
 }
 
 export type workoutAction = workout & {

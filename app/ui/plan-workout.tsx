@@ -16,6 +16,8 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
+import { createWorkout } from "../lib/actions";
+//import { addWorkout } from "../lib/api/exercises";
 
 export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[] | null> }) {
 
@@ -23,7 +25,6 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
     const [showAddExercise, setShowAddExercise] = useState(false);
     const [showPlanWorkout, setShowPlanWorkout] = useState(false);
     const [exercises, exercisesDispatch] = useReducer(exercisesReducer, []);
-    const [workouts, workoutsDispatch] = useReducer(workoutsReducer, []);
 
     const handlePlanWorkoutClick = () => {
         setShowPlanWorkout(!showPlanWorkout);
@@ -32,15 +33,8 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
     const todaysDate = new Date(Date()).toISOString().slice(0, 10);
 
     const saveWorkout = async (formData: FormData) => {
-        console.log(formData);
         let scheduledDate: string = formData.get('workoutDate')!.toString();
-
-        workoutsDispatch({
-            type: 'add',
-            date: scheduledDate,
-            name: String(formData.get('workoutName')),
-            exercises: exercises,
-        })
+        createWorkout(formData);
 
         let action = {
             type: 'reset',
@@ -89,6 +83,7 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
                                         <OutlinedInput label="Workout Name" name="workoutName" type="text" size="small" defaultValue={'Workout'} />
                                     </FormControl>
 
+                                    <input type="hidden" name="exercises" value={exercises.map(exercise => exercise.id).toString()} />
 
                                     <Box component="div" sx={{ py: 2 }}>
                                         <Stack spacing={2} direction="row">
@@ -141,21 +136,6 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
                 </Grid>
             </Grid>
             }
-
-            <Box>
-                <div >
-                    <h3>Scheduled Workouts:</h3>
-                    {workouts.length === 0 ? <span>No workouts planned</span> :
-                        <Stack spacing={2} direction="row" overflow="scroll">
-                            {
-                                workouts?.map((workout: workout, ndx: number) => {
-                                    return <article key={ndx}><Workout data={workout} /></article>
-                                })
-                            }
-                        </Stack>
-                    }
-                </div>
-            </Box>
         </Stack>
     )
 
@@ -178,21 +158,6 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[
             }
             default: {
                 throw Error('Unknown action type: ' + type);
-            }
-        }
-    }
-
-    function workoutsReducer(workouts: Array<workout>, action: workoutAction) {
-        let { type, ...workoutData } = action;
-        switch (action.type) {
-            case 'add': {
-                return [
-                    ...workouts,
-                    workoutData
-                ]
-            }
-            default: {
-                throw new Error("Unknown action type: " + action.type)
             }
         }
     }
