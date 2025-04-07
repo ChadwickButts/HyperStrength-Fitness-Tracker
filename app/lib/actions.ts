@@ -4,6 +4,10 @@ import { createClient } from "@/utils/supabase/server"
 import { cookies } from 'next/headers'
 import dayjs from "dayjs";
 
+export async function addExercise(formData: FormData) {
+    console.log(formData) 
+}
+
 export async function createWorkout(formData: FormData) {
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
