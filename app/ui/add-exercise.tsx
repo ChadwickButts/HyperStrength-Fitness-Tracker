@@ -12,11 +12,9 @@ import {
 
 import AddCircle from '@mui/icons-material/AddCircle';
 
-export default function AddExercise({ dispatchExercise, exerciseList }: { dispatchExercise: Dispatch<exercisesAction>, exerciseList: Promise<any[] | null> }) {
+export default function AddExercise({ dispatchExercise, exerciseList }: { dispatchExercise: Dispatch<exercisesAction>, exerciseList: exerciseData[] | null }) {
     const [searchValue, setSearchValue] = useState('');
-    const [searchResults, setSearchResults] = useState<typeof exerciseLibrary>([]);
-
-    const exerciseLibrary: exerciseData[] | null = use(exerciseList);
+    const [searchResults, setSearchResults] = useState<typeof exerciseList>([]);
 
     const handleAddExercise = (exercise: exerciseData, ndx: number) => {
         let exerciseDataAction = {
@@ -28,7 +26,7 @@ export default function AddExercise({ dispatchExercise, exerciseList }: { dispat
     }
 
     useEffect(() => {
-        let result: exerciseData[] | null = exerciseLibrary?.filter(exercise => {
+        let result: exerciseData[] | null = exerciseList?.filter(exercise => {
             if (searchValue) {
                 return exercise.name.toLowerCase().includes(searchValue.toLowerCase());
             } else {

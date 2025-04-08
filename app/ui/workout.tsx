@@ -7,7 +7,7 @@ import { exercise, exerciseData, workout } from "../lib/definitions"
 import { Card, CardContent, List, ListItem, ListItemText, Typography, Button, CardActions, CardHeader, Collapse } from "@mui/material";
 
 
-export default function Workout({ data, exercises }: { data: workout, exercises: Promise<any[] | null> }) {
+export default function Workout({ data, exercises }: { data: workout, exercises: exerciseData[] | null }) {
 
     const dateRender = new Date(data.date).toLocaleDateString(undefined, {
         weekday: 'short',

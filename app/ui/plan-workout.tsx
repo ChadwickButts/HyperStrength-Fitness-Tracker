@@ -19,7 +19,7 @@ import dayjs from 'dayjs';
 import { createWorkout } from "../lib/actions";
 //import { addWorkout } from "../lib/api/exercises";
 
-export default function PlanWorkout({ exerciseLib }: { exerciseLib: Promise<any[] | null> }) {
+export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData[] | null }) {
 
     const formRef: LegacyRef<HTMLFormElement> = useRef(null);
     const [showAddExercise, setShowAddExercise] = useState(false);

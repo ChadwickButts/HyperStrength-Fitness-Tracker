@@ -4,14 +4,15 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "./../app/app.css";
 import "@aws-amplify/ui-react/styles.css";
-import { getExercisesClient, supabaseClient } from "@/utils/supabase/client";
 import { scan } from "react-scan";
 import { Card, CardContent, Container, Paper, Stack } from "@mui/material";
 import { Suspense } from "react";
 
-import { getExercises, getWorkouts } from "./lib/api/exercises";
+import { createClientAll } from '@/utils/supabase/server'
+import { getExercises, getWorkouts } from "@/utils/supabase/queries";
 import PlanWorkout from "./ui/plan-workout";
 import ScheduledWorkouts from "./ui/scheduled-workouts";
+import { exerciseData, workout } from "./lib/definitions";
 
 if (typeof window !== 'undefined') {
   scan({
@@ -23,8 +24,11 @@ if (typeof window !== 'undefined') {
 
 export default async function App() {
 
-  const exercisesLibrary = getExercises();
-  const scheduledWorkoutsLibrary = getWorkouts();
+  const supabase = createClientAll();
+  const [ exercisesLibrary, scheduledWorkoutsLibrary ] = await Promise.all([
+    getExercises(supabase),
+    getWorkouts(supabase)
+  ]);
 
   return (
     <Container sx={{ p: 2 }}>
@@ -37,10 +41,10 @@ export default async function App() {
             </CardContent>
           </Card>
         </Paper>
+        <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary || [] } exerciseLib={exercisesLibrary || []} />
         <Suspense fallback={<div>Loading...</div>}>
           <PlanWorkout exerciseLib={exercisesLibrary} />
         </Suspense>
-          <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary} exerciseLib={exercisesLibrary} />
       </Stack>
     </Container>
 

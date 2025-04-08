@@ -1,29 +1,38 @@
 'use client'
 
 import React, { use, useReducer } from "react";
-import { exercise, workout, workoutAction } from "../lib/definitions";
-import { Stack } from "@mui/material";
+import { exercise, exerciseData, workout, workoutAction } from "../lib/definitions";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 import Workout from "./workout";
+import { CalendarIcon } from "@mui/x-date-pickers/icons";
 
-export default function ScheduledWorkouts({ workoutsLib, exerciseLib } : { workoutsLib: Promise<any[] | null>, exerciseLib: Promise<any[] | null> }) {
+export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workoutsLib: workout[], exerciseLib: exerciseData[] }) {
 
-    const workoutsData: workout[] | null = use(workoutsLib);
     const [workouts, dispatchWorkouts] = useReducer(workoutsReducer, []);
 
     return (
         <div >
-            <h3>Scheduled Workouts:</h3>
-            {workoutsData?.length === 0 ? <span>No workouts planned</span> :
-                <Stack spacing={2} direction="row" overflow="scroll">
-                    {
-                        workoutsData?.map((workout: workout) => {
-                            return <article key={workout.id}>
-                                <Workout data={workout} exercises={exerciseLib}/>
-                            </article>
-                        })
-                    }
-                </Stack>
-            }
+            <Box display="flex" alignItems="center" mb={1}>
+                <Box mr={1} display="flex">
+                    <CalendarIcon fontSize="medium" />
+                </Box>
+                <Typography variant="h5">
+                    Scheduled Workouts
+                </Typography>
+            </Box>
+            <Paper>
+                {workoutsLib?.length === 0 ? <span>No workouts planned</span> :
+                    <Stack spacing={2} direction="row" overflow="scroll">
+                        {
+                            workoutsLib?.map((workout: workout) => {
+                                return <article key={workout.id}>
+                                    <Workout data={workout} exercises={exerciseLib} />
+                                </article>
+                            })
+                        }
+                    </Stack>
+                }
+            </Paper>
         </div>
     )
 

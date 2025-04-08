@@ -7,7 +7,7 @@ import { Card, CardContent, Container, Paper, Stack } from "@mui/material";
 
 export default async function Page() {
 
-    const exercisesLibrary = getExercises();
+    const exercisesLibrary = await getExercises();
 
     return (
         <Container>
