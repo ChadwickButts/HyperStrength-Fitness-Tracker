@@ -1,3 +1,19 @@
+## Hyperstrength Fitness Tracker App
+
+This project is intended to be an implementation of the training ideas discussed in the book, [Science of Strength Training: Understand the anatomy and physiology to transform your body by Austin Current](https://www.amazon.com/gp/product/B08T1J6FB8/ref=kinw_myk_ro_title).
+
+Currently, the app allows users to record a collection of exercises as a "workout" and assign it a name and date.  
+
+
+
+
+
+
+
+
+
+
+
 ## AWS Amplify Next.js (App Router) Starter Template
 
 This repository provides a starter template for creating applications using Next.js (App Router) and AWS Amplify, emphasizing easy setup for authentication, API, and database capabilities.
