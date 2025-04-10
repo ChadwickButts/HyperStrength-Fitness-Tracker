@@ -5,7 +5,9 @@ import outputs from "@/amplify_outputs.json";
 import "./../app/app.css";
 import "@aws-amplify/ui-react/styles.css";
 import { scan } from "react-scan";
-import { Card, CardContent, Container, Paper, Stack } from "@mui/material";
+import { AppBar, Box, Card, CardContent, Container, CssBaseline, Drawer, Divider, List, ListItem, ListItemButton, ListItemText, Paper, Stack, Toolbar, Typography, Grid, Tab } from "@mui/material";
+import MuiDrawer, { drawerClasses } from '@mui/material/Drawer';
+import Tabs, { tabsClasses } from '@mui/material/Tabs';
 import { Suspense } from "react";
 
 import { createClientAll } from '@/utils/supabase/server'
@@ -13,6 +15,8 @@ import { getExercises, getWorkouts } from "@/utils/supabase/queries";
 import PlanWorkout from "./ui/plan-workout";
 import ScheduledWorkouts from "./ui/scheduled-workouts";
 import { exerciseData, workout } from "./lib/definitions";
+import Link from "next/link";
+import Welcome from "./ui/welcome";
 
 if (typeof window !== 'undefined') {
   scan({
@@ -21,32 +25,30 @@ if (typeof window !== 'undefined') {
   });
 }
 
-
 export default async function App() {
 
   const supabase = createClientAll();
-  const [ exercisesLibrary, scheduledWorkoutsLibrary ] = await Promise.all([
+  const [exercisesLibrary, scheduledWorkoutsLibrary] = await Promise.all([
     getExercises(supabase),
     getWorkouts(supabase)
   ]);
 
   return (
-    <Container sx={{ p: 2 }}>
-      <Stack spacing={2}>
-        <Paper>
-          <Card sx={{ p: 2 }}>
-            <CardContent>
-              This site is a companion for the book, Science of Strength Training:
-              Understand the Anatomy and Physiology to Change Your Life
-            </CardContent>
-          </Card>
-        </Paper>
-        <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary || [] } exerciseLib={exercisesLibrary || []} />
-        <Suspense fallback={<div>Loading...</div>}>
-          <PlanWorkout exerciseLib={exercisesLibrary} />
-        </Suspense>
-      </Stack>
-    </Container>
+      <Container disableGutters sx={{ p: 1, mt: 1 }}>
+        <Grid container spacing={2}>
+          <Grid size={8}>
+            <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary || []} exerciseLib={exercisesLibrary || []} />
+          </Grid>
+          <Grid size={3}>
+            <Welcome />
+          </Grid>
+        </Grid>
+        <Stack spacing={2}>
+          <Suspense fallback={<div>Loading...</div>}>
+            <PlanWorkout exerciseLib={exercisesLibrary} />
+          </Suspense>
+        </Stack>
+      </Container>
 
   )
 }
