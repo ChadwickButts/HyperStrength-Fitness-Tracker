@@ -6,6 +6,7 @@ import { Box, Card, CardContent, Grid, Paper, Stack, Tab, Tabs, Typography } fro
 import Workout from "./workout";
 import { CalendarIcon } from "@mui/x-date-pickers/icons";
 import dayjs from "dayjs";
+import PlanWorkout from "./plan-workout";
 
 export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workoutsLib: workout[], exerciseLib: exerciseData[] }) {
 
@@ -20,13 +21,18 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
             <Grid size={12} >
                 <Card >
                     <CardContent >
-                        <Box display="flex" alignItems="center" mb={1} >
-                            <Box mr={1} >
-                                <CalendarIcon fontSize="medium" />
+                        <Box display="flex" justifyContent="space-between" mb={1} >
+                            <Box display="flex" alignItems="center" >
+                                <Box mr={1}>
+                                    <CalendarIcon fontSize="medium" />
+                                </Box>
+                                <Typography variant="h1">
+                                    Scheduled Workouts
+                                </Typography>
                             </Box>
-                            <Typography variant="h1">
-                                Scheduled Workouts
-                            </Typography>
+                            <Box >
+                                <PlanWorkout exerciseLib={exerciseLib} />
+                            </Box>
                         </Box>
                         <Box >
                             <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 1 }}>

@@ -43,11 +43,6 @@ export default async function App() {
             <Welcome />
           </Grid>
         </Grid>
-        <Stack spacing={2} >
-          <Suspense fallback={<div>Loading...</div>}>
-            <PlanWorkout exerciseLib={exercisesLibrary} />
-          </Suspense>
-        </Stack>
       </Container>
 
   )
