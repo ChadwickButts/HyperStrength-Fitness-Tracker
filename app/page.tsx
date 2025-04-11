@@ -35,15 +35,15 @@ export default async function App() {
 
   return (
       <Container disableGutters sx={{ p: 1, mt: 1 }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={1} >
           <Grid size={8}>
             <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary || []} exerciseLib={exercisesLibrary || []} />
           </Grid>
-          <Grid size={3}>
+          <Grid size={4}>
             <Welcome />
           </Grid>
         </Grid>
-        <Stack spacing={2}>
+        <Stack spacing={2} >
           <Suspense fallback={<div>Loading...</div>}>
             <PlanWorkout exerciseLib={exercisesLibrary} />
           </Suspense>

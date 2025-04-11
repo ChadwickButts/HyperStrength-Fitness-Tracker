@@ -16,21 +16,23 @@ export default function Workout({ data, exercises }: { data: workout, exercises:
         day: 'numeric'
     });
 
-    return <Card variant="outlined" sx={{ minWidth: 275, minHeight: 375 }}>
-        <CardHeader title={data.name} subheader={dateRender} />
-        <CardContent>
-            <List dense={true}>
-                {data.exercises.map((exerciseID: string, ndx: number) => {
-                    
-                    return <ListItem key={ndx}>
-                        <ListItemText>{exerciseID}</ListItemText>
-                    </ListItem>
-                })}
-            </List>
-        </CardContent>
-        <CardActions>
-            <Button type="button" size="small">Track Workout</Button>
-        </CardActions>
-    </Card>
+    return (
+        <Card variant="outlined" >
+            <CardHeader title={data.name} subheader={dateRender} />
+            <CardContent sx={{ p: 0, pl: 2 }}>
+                <List dense={true} sx={{ p: 0, m: 0 }}>
+                    {data.exercises.map((exerciseID: string, ndx: number) => {
+
+                        return <ListItem key={ndx}>
+                            <ListItemText>{exerciseID}</ListItemText>
+                        </ListItem>
+                    })}
+                </List>
+            </CardContent>
+            <CardActions>
+                <Button type="button" size="small">Track Workout</Button>
+            </CardActions>
+        </Card>
+    )
 
 }
