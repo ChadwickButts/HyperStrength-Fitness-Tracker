@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import { addExercise } from "../lib/actions";
+import { addExercise } from "../../lib/actions";
 
 export default function ExerciseForm() {
 

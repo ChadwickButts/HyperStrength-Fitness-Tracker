@@ -4,6 +4,7 @@ import "./app.css";
 import DatePickerLocalization from "./datepicker_localization";
 import { AppBar, Box, CssBaseline, Divider, Drawer, List, ListItem, ListItemButton, Tab, Tabs, ThemeProvider, Toolbar, Typography } from "@mui/material";
 import theme from "./theme";
+import DrawerNavLinks from "./ui/drawer-nav-links";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -19,12 +20,7 @@ export const metadata: Metadata = {
 
 const drawerWidth = 160;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={roboto.variable}>
       <body>
@@ -43,20 +39,9 @@ export default function RootLayout({
                 </Typography>
               </Toolbar>
               <Divider />
-              <List>
-                <ListItem disablePadding>
-                  <ListItemButton >
-                    Dashboard
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    Exercise Library
-                  </ListItemButton>
-                </ListItem>
-              </List>
+              <DrawerNavLinks />
             </Drawer>
-            <Box component="main"  sx={{
+            <Box component="main" sx={{
               flexGrow: 1
             }}>
               <DatePickerLocalization>

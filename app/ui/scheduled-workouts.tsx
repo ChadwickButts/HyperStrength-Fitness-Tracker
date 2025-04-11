@@ -5,6 +5,7 @@ import { exercise, exerciseData, workout, workoutAction } from "../lib/definitio
 import { Box, Card, CardContent, Grid, Paper, Stack, Tab, Tabs, Typography } from "@mui/material";
 import Workout from "./workout";
 import { CalendarIcon } from "@mui/x-date-pickers/icons";
+import dayjs from "dayjs";
 
 export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workoutsLib: workout[], exerciseLib: exerciseData[] }) {
 
@@ -35,48 +36,33 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
                                 </Tabs>
                             </Box>
                             <Box>
-                                {value === 0 &&
-                                    <Box display="flex" flexWrap="wrap">
-                                        {
-                                            workoutsLib?.map((workout: workout) => {
-                                                return <Box key={workout.id} flexBasis={275} flexShrink={1} flexGrow={1} >
+                                <Box display="flex" flexWrap="wrap" gap={1}>
+                                    {value === 0 &&
+                                        workoutsLib?.map((workout: workout) => {
+                                            if (dayjs(workout.date).isSame(dayjs().format('YYYY-MM-DD')) ||
+                                                dayjs(workout.date).isAfter(dayjs().format('YYYY-MM-DD')))
+                                                return <Box key={workout.id} flexBasis={200} flexShrink={1} >
                                                     <Workout data={workout} exercises={exerciseLib} />
                                                 </Box>
-                                            })
-                                        }
-                                    </Box>
-                                }
+                                        })
+
+
+                                    }
+                                    {value === 1 &&
+                                        workoutsLib?.map((workout: workout) => {
+                                            if (dayjs(workout.date).isBefore(dayjs().format('YYYY-MM-DD')))
+                                                return <Box key={workout.id} flexBasis={200} flexShrink={1} >
+                                                    <Workout data={workout} exercises={exerciseLib} />
+                                                </Box>
+                                        })
+                                    }
+                                </Box>
                             </Box>
                         </Box>
                     </CardContent>
                 </Card>
             </Grid>
         </Grid>
-        /*
-        <div >
-            <Box display="flex" alignItems="center" mb={1}>
-                <Box mr={1} display="flex">
-                    <CalendarIcon fontSize="medium" />
-                </Box>
-                <Typography variant="h5">
-                    Upcoming Workouts
-                </Typography>
-            </Box>
-            <Paper>
-                {workoutsLib?.length === 0 ? <span>No workouts planned</span> :
-                    <Stack spacing={2} direction="row" overflow="scroll">
-                        {
-                            workoutsLib?.map((workout: workout) => {
-                                return <article key={workout.id}>
-                                    <Workout data={workout} exercises={exerciseLib} />
-                                </article>
-                            })
-                        }
-                    </Stack>
-                }
-            </Paper>
-        </div>
-        */
     )
 
     function workoutsReducer(workouts: Array<workout>, action: workoutAction) {

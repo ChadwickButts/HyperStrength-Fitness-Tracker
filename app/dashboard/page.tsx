@@ -1,5 +1,5 @@
 import Link from "next/link"
-import ExerciseForm from "../ui/exercise-form"
+import ExerciseForm from "../ui/exercises/exercise-form"
 import PlanWorkout from "../ui/plan-workout"
 import { getExercises } from "../lib/api/exercises"
 import { Suspense } from "react";
