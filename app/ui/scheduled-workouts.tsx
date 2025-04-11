@@ -41,7 +41,7 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
                                         workoutsLib?.map((workout: workout) => {
                                             if (dayjs(workout.date).isSame(dayjs().format('YYYY-MM-DD')) ||
                                                 dayjs(workout.date).isAfter(dayjs().format('YYYY-MM-DD')))
-                                                return <Box key={workout.id} flexBasis={200} flexShrink={1} >
+                                                return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
                                                     <Workout data={workout} exercises={exerciseLib} />
                                                 </Box>
                                         })
@@ -51,7 +51,7 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
                                     {value === 1 &&
                                         workoutsLib?.map((workout: workout) => {
                                             if (dayjs(workout.date).isBefore(dayjs().format('YYYY-MM-DD')))
-                                                return <Box key={workout.id} flexBasis={200} flexShrink={1} >
+                                                return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
                                                     <Workout data={workout} exercises={exerciseLib} />
                                                 </Box>
                                         })
