@@ -36,10 +36,10 @@ export default async function App() {
   return (
       <Container disableGutters sx={{ p: 1, mt: 1 }}>
         <Grid container spacing={1} >
-          <Grid size={8}>
+          <Grid size={{ sm: 12, md: 8 }}>
             <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary || []} exerciseLib={exercisesLibrary || []} />
           </Grid>
-          <Grid size={4}>
+          <Grid size={{ sm: 12, md: 4 }}>
             <Welcome />
           </Grid>
         </Grid>
