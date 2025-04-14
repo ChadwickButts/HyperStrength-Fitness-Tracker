@@ -20,7 +20,8 @@ export async function createWorkout(formData: FormData) {
             { 
                 name: formData.get('workoutName')?.toString(),
                 date: dayjs(scheduledDate).format('YYYY-MM-DD HH:mm:ss').toString(),
-                exercises: formData.get('exercises')?.toString().split(',')
+                exercises: formData.get('exercises')?.toString().split(','),
+                tracked: false
             }
         ]).select();
 

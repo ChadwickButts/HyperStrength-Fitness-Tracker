@@ -30,7 +30,8 @@ export type workout = {
     id: string,
     name: string,
     date: string,
-    exercises: string[]
+    exercises: string[],
+    tracked: boolean
 }
 
 export type workoutAction = workout & {

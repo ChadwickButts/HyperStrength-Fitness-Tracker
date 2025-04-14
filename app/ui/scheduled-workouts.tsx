@@ -19,54 +19,54 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
     return (
         <Grid container>
             <Grid size={12} >
-                <Card >
-                    <CardContent >
-                        <Box display="flex" justifyContent="space-between" mb={1} >
-                            <Box display="flex" alignItems="center" >
-                                <Box mr={1}>
-                                    <CalendarIcon fontSize="medium" />
-                                </Box>
-                                <Typography variant="h1">
-                                    Scheduled Workouts
-                                </Typography>
+                <Paper sx={{ p: 2 }} >
+                    <Box display="flex" justifyContent="space-between" mb={1} >
+                        <Box display="flex" alignItems="center" >
+                            <Box mr={1}>
+                                <CalendarIcon fontSize="medium" />
                             </Box>
-                            <Box >
-                                <PlanWorkout exerciseLib={exerciseLib} />
-                            </Box>
+                            <Typography variant="h1" sx={{
+                                fontWeight: 400
+                            }}>
+                                Scheduled Workouts
+                            </Typography>
                         </Box>
                         <Box >
-                            <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 1 }}>
-                                <Tabs value={value} onChange={handleTabChange} aria-label="workout tabs">
-                                    <Tab disableRipple label="Upcoming" id="simple-tab-index-0" aria-controls="simple-tabpanel-0" />
-                                    <Tab disableRipple label="Past" id="simple-tab-index-1" aria-controls="simple-tabpanel-1" />
-                                </Tabs>
-                            </Box>
-                            <Box>
-                                <Box display="flex" flexWrap="wrap" gap={1}>
-                                    {value === 0 &&
-                                        workoutsLib?.map((workout: workout) => {
-                                            if (dayjs(workout.date).isSame(dayjs().format('YYYY-MM-DD')) ||
-                                                dayjs(workout.date).isAfter(dayjs().format('YYYY-MM-DD')))
-                                                return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
-                                                    <Workout data={workout} exercises={exerciseLib} />
-                                                </Box>
-                                        })
+                            <PlanWorkout exerciseLib={exerciseLib} />
+                        </Box>
+                    </Box>
+                    <Box >
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 1 }}>
+                            <Tabs value={value} onChange={handleTabChange} aria-label="workout tabs">
+                                <Tab disableRipple label="Upcoming" id="simple-tab-index-0" aria-controls="simple-tabpanel-0" />
+                                <Tab disableRipple label="Past" id="simple-tab-index-1" aria-controls="simple-tabpanel-1" />
+                            </Tabs>
+                        </Box>
+                        <Box>
+                            <Box display="flex" flexWrap="wrap" gap={1}>
+                                {value === 0 &&
+                                    workoutsLib?.map((workout: workout) => {
+                                        if (dayjs(workout.date).isSame(dayjs().format('YYYY-MM-DD')) ||
+                                            dayjs(workout.date).isAfter(dayjs().format('YYYY-MM-DD')))
+                                            return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
+                                                <Workout data={workout} exercises={exerciseLib} />
+                                            </Box>
+                                    })
 
 
-                                    }
-                                    {value === 1 &&
-                                        workoutsLib?.map((workout: workout) => {
-                                            if (dayjs(workout.date).isBefore(dayjs().format('YYYY-MM-DD')))
-                                                return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
-                                                    <Workout data={workout} exercises={exerciseLib} />
-                                                </Box>
-                                        })
-                                    }
-                                </Box>
+                                }
+                                {value === 1 &&
+                                    workoutsLib?.map((workout: workout) => {
+                                        if (dayjs(workout.date).isBefore(dayjs().format('YYYY-MM-DD')))
+                                            return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
+                                                <Workout data={workout} exercises={exerciseLib} />
+                                            </Box>
+                                    })
+                                }
                             </Box>
                         </Box>
-                    </CardContent>
-                </Card>
+                    </Box>
+                </Paper>
             </Grid>
         </Grid>
     )
