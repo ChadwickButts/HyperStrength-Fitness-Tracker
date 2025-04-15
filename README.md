@@ -1,4 +1,4 @@
-## Hyperstrength Fitness Tracker App
+## HyperStrength Fitness Tracker App
 
 This project is intended to be an implementation of the training ideas discussed in the book, [Science of Strength Training: Understand the anatomy and physiology to transform your body by Austin Current](https://www.amazon.com/gp/product/B08T1J6FB8/ref=kinw_myk_ro_title).
 
