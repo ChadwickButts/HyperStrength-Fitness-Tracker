@@ -3,8 +3,7 @@ backend:
   phases:
     build:
       commands:
-        - npm ci --cache .npm --prefer-offline
-        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+        - npm ci 
 frontend:
   phases:
     build:
@@ -16,6 +15,4 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - .next/cache/**/*
-      - .npm/**/*
       - node_modules/**/*
