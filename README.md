@@ -1,8 +1,15 @@
-## Hyperstrength Fitness Tracker App
+## HyperStrength Fitness Tracker App
 
 This project is intended to be an implementation of the training ideas discussed in the book, [Science of Strength Training: Understand the anatomy and physiology to transform your body by Austin Current](https://www.amazon.com/gp/product/B08T1J6FB8/ref=kinw_myk_ro_title).
 
-Currently, the app allows users to record a collection of exercises as a "workout" and assign it a name and date.  
+Currently, the app allows users to record a collection of exercises as a "workout" and assign it a name and date. User's are also able to see a table of the library of exercises available to choose from.
+
+The app is built on the following technology:
+- Next.js (App Router) w/ TypeScript
+- Supabase
+- MaterialUI
+
+
 
 
 
