@@ -44,7 +44,7 @@ const server = new ApolloServer({
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
     context: async (req: any) => ({ 
         req,
-        db: postgres(process.env.PG_URL!)
+        db: await postgres(process.env.PG_URL!)
     }),
 });
 
