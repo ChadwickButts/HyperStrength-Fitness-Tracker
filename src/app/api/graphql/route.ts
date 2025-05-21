@@ -37,14 +37,12 @@ const typeDefs = `#graphql
 
 const server = new ApolloServer({
     resolvers,
-    typeDefs,
+    typeDefs
 });
 
 // https://www.apollographql.com/docs/apollo-server/v3/data/resolvers#the-context-argument
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-    context: async (req, res) => ({ 
-        req,
-        res,
+    context: async (req) => ({ 
         db: await postgres(process.env.PG_URL!)
     }),
 });
