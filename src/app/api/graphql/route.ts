@@ -9,8 +9,8 @@ import { exerciseData } from '@/app/lib/definitions';
 
 const resolvers = {
     Query: {
-        getExercises: async (parent: any, args: any, contextValue: any ) => { 
-            return await contextValue.db<exerciseData[]>`SELECT * FROM public.exercises`
+        getExercises: async (parent: any, args: any, context: any ) => { 
+            return await context.db<exerciseData[]>`SELECT * FROM public.exercises`
         }
     }
 }
@@ -42,7 +42,7 @@ const server = new ApolloServer({
 
 // https://www.apollographql.com/docs/apollo-server/v3/data/resolvers#the-context-argument
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-    context: async (req) => ({ 
+    context: async () => ({
         db: await postgres(process.env.PG_URL!)
     }),
 });
