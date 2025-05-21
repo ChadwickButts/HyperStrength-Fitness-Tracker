@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import DatePickerLocalization from "./datepicker_localization";
 import { Box, CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
 import theme from "./theme";
