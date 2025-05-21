@@ -42,11 +42,13 @@ const server = new ApolloServer({
 
 // https://www.apollographql.com/docs/apollo-server/v3/data/resolvers#the-context-argument
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-    context: async () => ({
+    context: async (req) => ({
+        req,
         db: await postgres(process.env.PG_URL!)
     }),
 });
 
+// https://github.com/apollo-server-integrations/apollo-server-integration-next/issues/229
 export async function GET(request: NextRequest) {
     handler(request)
 }
