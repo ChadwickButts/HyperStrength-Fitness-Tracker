@@ -1,0 +1,17 @@
+type Exercise {
+    exercisename: String,
+    force: String,
+    level: String,
+    mechanic: String,
+    equipment: String,
+    primaryMuscles: [String],
+    secondaryMuscles: [String],
+    instructions: [String],
+    category: String,
+    images: [String],
+    exerciseid: String
+}
+
+type Query {
+    getExercises: [Exercise]
+}
