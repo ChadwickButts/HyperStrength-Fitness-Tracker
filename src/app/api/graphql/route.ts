@@ -50,9 +50,9 @@ const handler = startServerAndCreateNextHandler<NextRequest>(server, {
 
 // https://github.com/apollo-server-integrations/apollo-server-integration-next/issues/229
 export async function GET(request: NextRequest) {
-    handler(request)
+    return handler(request)
 }
 
 export async function POST(request: NextRequest) {
-    handler(request)
+    return handler(request)
 }
