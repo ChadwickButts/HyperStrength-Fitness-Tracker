@@ -22,11 +22,9 @@ const handler = startServerAndCreateNextHandler<NextRequest>(server, {
 
 // https://github.com/apollo-server-integrations/apollo-server-integration-next/issues/229
 export async function GET(request: NextRequest) {
-    request.headers.set('Access-Control-Allow-Origin','*')
     return handler(request)
 }
 
 export async function POST(request: NextRequest) {
-    request.headers.set('Access-Control-Allow-Origin','*')
     return handler(request)
 }

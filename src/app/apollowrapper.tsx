@@ -7,7 +7,7 @@ import React from 'react';
 export function ApolloWrapper({ children }: { children: React.ReactNode }) {
 
     const client = new ApolloClient({
-        uri: 'http://localhost:3000/api/graphql',
+        uri: 'https://hyperstrength-fitness-tracker-git-620399-chadwickbutts-projects.vercel.app/api/graphql',
         cache: new InMemoryCache()
     });
 
