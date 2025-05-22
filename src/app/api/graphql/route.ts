@@ -16,21 +16,17 @@ const server = new ApolloServer({
 // https://www.apollographql.com/docs/apollo-server/v3/data/resolvers#the-context-argument
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
     context: async (req, res) => ({
-        req: {
-            headers: { 'Access-Control-Allow-Origin': '*' }
-        },
-        res: {
-            headers: { 'Access-Control-Allow-Origin': '*' }
-        },
         db: await postgres(process.env.PG_URL!)
     })
 });
 
 // https://github.com/apollo-server-integrations/apollo-server-integration-next/issues/229
 export async function GET(request: NextRequest) {
+    request.headers.set('Access-Control-Allow-Origin','*')
     return handler(request)
 }
 
 export async function POST(request: NextRequest) {
+    request.headers.set('Access-Control-Allow-Origin','*')
     return handler(request)
 }
