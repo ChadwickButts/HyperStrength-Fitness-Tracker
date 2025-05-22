@@ -6,6 +6,7 @@ import { NextRequest } from 'next/server';
 import postgres from 'postgres';
 import { typeDefs } from './typedefs';
 import { resolvers } from './resolvers';
+import { headers } from 'next/headers';
 
 const server = new ApolloServer({
     resolvers,
@@ -14,10 +15,15 @@ const server = new ApolloServer({
 
 // https://www.apollographql.com/docs/apollo-server/v3/data/resolvers#the-context-argument
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-    context: async (req) => ({
-        req,
+    context: async (req, res) => ({
+        req: {
+            headers: { 'Access-Control-Allow-Origin': '*' }
+        },
+        res: {
+            headers: { 'Access-Control-Allow-Origin': '*' }
+        },
         db: await postgres(process.env.PG_URL!)
-    }),
+    })
 });
 
 // https://github.com/apollo-server-integrations/apollo-server-integration-next/issues/229
