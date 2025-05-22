@@ -3,18 +3,33 @@
 import React, { use, useReducer, useState } from "react";
 import { exercise, exerciseData, workout, workoutAction } from "../lib/definitions";
 import { Box, Card, CardContent, Grid, Paper, Stack, Tab, Tabs, Typography } from "@mui/material";
-import Workout from "./workout";
+import WorkoutCard from "./workout";
 import { CalendarIcon } from "@mui/x-date-pickers/icons";
 import dayjs from "dayjs";
 import PlanWorkout from "./plan-workout";
+import { useQuery, gql } from "@apollo/client";
+import { Workout } from "@/types";
 
-export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workoutsLib: workout[], exerciseLib: exerciseData[] }) {
+export default function ScheduledWorkouts({ exerciseLib }: { exerciseLib: exerciseData[] }) {
 
     const [workouts, dispatchWorkouts] = useReducer(workoutsReducer, []);
     const [value, setValue] = useState(0);
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
+
+    const Get_Workouts = gql`#graphql
+            query Get_Workouts {
+                workouts {
+                    workoutname
+                    workoutid
+                    date
+                    tracked
+                }
+            }
+        `;
+
+    const { loading, error, data } = useQuery(Get_Workouts)
 
     return (
         <Grid container>
@@ -32,7 +47,7 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
                             </Typography>
                         </Box>
                         <Box >
-                            <PlanWorkout exerciseLib={exerciseLib} />
+                            <PlanWorkout />
                         </Box>
                     </Box>
                     <Box >
@@ -43,27 +58,28 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
                             </Tabs>
                         </Box>
                         <Box>
-                            <Box display="flex" flexWrap="wrap" gap={1}>
+                            {loading && <p>Workouts Loading...</p>}
+                            {!loading && <Box display="flex" flexWrap="wrap" gap={1}>
                                 {value === 0 &&
-                                    workoutsLib?.map((workout: workout) => {
-                                        if (dayjs(workout.date).isSame(dayjs().format('YYYY-MM-DD')) ||
-                                            dayjs(workout.date).isAfter(dayjs().format('YYYY-MM-DD')))
-                                            return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
-                                                <Workout data={workout} exercises={exerciseLib} />
+                                    data?.workouts.map((workoutInfo: Workout) => {
+                                        if (dayjs(workoutInfo.date).isSame(dayjs().format('YYYY-MM-DD')) ||
+                                            dayjs(workoutInfo.date).isAfter(dayjs().format('YYYY-MM-DD')))
+                                            return <Box key={workoutInfo.workoutid} flexBasis={200} flexGrow={1} maxWidth={215}>
+                                                <WorkoutCard wdata={workoutInfo} />
                                             </Box>
                                     })
 
 
                                 }
                                 {value === 1 &&
-                                    workoutsLib?.map((workout: workout) => {
-                                        if (dayjs(workout.date).isBefore(dayjs().format('YYYY-MM-DD')))
-                                            return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
-                                                <Workout data={workout} exercises={exerciseLib} />
+                                    data?.workouts.map((workoutInfo: Workout) => {
+                                        if (dayjs(workoutInfo.date).isBefore(dayjs().format('YYYY-MM-DD')))
+                                            return <Box key={workoutInfo.workoutid} flexBasis={200} flexGrow={1} maxWidth={215}>
+                                                <WorkoutCard wdata={workoutInfo} />
                                             </Box>
                                     })
                                 }
-                            </Box>
+                            </Box>}
                         </Box>
                     </Box>
                 </Paper>

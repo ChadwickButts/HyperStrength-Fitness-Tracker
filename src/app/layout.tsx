@@ -4,6 +4,10 @@ import DatePickerLocalization from "./datepicker_localization";
 import { Box, CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
 import theme from "./theme";
 import CustomDrawer from "./ui/app-layout/drawer";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+
+import './globals.css'
+import { ApolloWrapper } from "./apollowrapper";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -11,6 +15,7 @@ const roboto = Roboto({
   display: 'swap',
   variable: '--font-roboto'
 });
+
 
 export const metadata: Metadata = {
   title: "HyperStrength Fitness Tracker",
@@ -22,22 +27,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={roboto.variable}>
       <body>
-        <ThemeProvider theme={theme}>
-          <div>
-          <Box sx={{ display: 'flex' }}>
-            <CustomDrawer />
-            <Box component="main" sx={{
-              flexGrow: 1
-            }}>
-              <Toolbar variant="dense" />
-              <DatePickerLocalization>
-                {children}
-              </DatePickerLocalization>
-            </Box>
-          </Box>
-          </div>
-        </ThemeProvider>
+        <ApolloWrapper>
+          <ThemeProvider theme={theme}>
+            <div>
+              <CssBaseline />
+              <Box sx={{ display: 'flex' }}>
+                <CustomDrawer />
+                <Box component="main" sx={{
+                  flexGrow: 1
+                }}>
+                  <Toolbar variant="dense" />
+                  <DatePickerLocalization>
+                    {children}
+                  </DatePickerLocalization>
+                </Box>
+              </Box>
+            </div>
+          </ThemeProvider>
+        </ApolloWrapper>
       </body>
-    </html>
+    </html >
   );
 }

@@ -3,6 +3,7 @@
 import { useReducer, useState, useRef, LegacyRef, Usable } from "react";
 import { exerciseData, exercisesAction, workout, workoutAction } from "../lib/definitions";
 import AddExercise from "./add-exercise";
+import { gql, useQuery } from "@apollo/client";
 import ExerciseLoadIntensityForm from "./exercise-load-intensity-form";
 import Workout from "./workout";
 
@@ -20,7 +21,7 @@ import { createWorkout } from "../lib/actions";
 import { Close } from "@mui/icons-material";
 //import { addWorkout } from "../lib/api/exercises";
 
-export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData[] | null }) {
+export default function PlanWorkout() {
 
     const formRef: LegacyRef<HTMLFormElement> = useRef(null);
     const [showAddExercise, setShowAddExercise] = useState(false);
@@ -67,11 +68,11 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData
                     <Grid container spacing={1} m='auto' width={600} >
                         <Grid size={12} >
                             <Paper sx={{ p: 2, pt: 0, pr: 0 }} >
-                                    <Box display='flex' justifyContent="flex-end">
-                                        <IconButton onClick={handlePlanWorkoutClick}>
-                                            <Close fontSize="small" />
-                                        </IconButton>
-                                    </Box>
+                                <Box display='flex' justifyContent="flex-end">
+                                    <IconButton onClick={handlePlanWorkoutClick}>
+                                        <Close fontSize="small" />
+                                    </IconButton>
+                                </Box>
                                 <Grid container spacing={1}>
                                     <Grid size={6}>
                                         <form action={saveWorkout} ref={formRef}>
@@ -94,7 +95,7 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData
                                                 <OutlinedInput label="Workout Name" name="workoutName" type="text" size="small" defaultValue={'Workout'} />
                                             </FormControl>
 
-                                            <input type="hidden" name="exercises" value={exercises.map(exercise => exercise.id).toString()} />
+                                            <input type="hidden" name="exercises" value={exercises.map(exercise => exercise.exerciseid).toString()} />
 
                                             <Box component="div" sx={{ py: 2 }}>
                                                 <Stack spacing={2} direction="row">
@@ -104,7 +105,7 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData
                                             </Box>
                                         </form>
 
-                                        {showAddExercise && <AddExercise dispatchExercise={exercisesDispatch} exerciseList={exerciseLib} />}
+                                        {showAddExercise && <AddExercise dispatchExercise={exercisesDispatch} />}
                                     </Grid>
                                     <Grid size={6}>
                                         {
@@ -122,7 +123,7 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData
                                                         }> {
                                                             exercises?.map((exerciseObj: exerciseData, ndx: number) => {
                                                                 return <ListItem key={ndx}>
-                                                                    <ListItemText>{exerciseObj.name}</ListItemText>
+                                                                    <ListItemText>{exerciseObj.exercisename}</ListItemText>
                                                                     <IconButton size="small" color="error" onClick={() => {
                                                                         let exerciseAction = {
                                                                             type: 'delete',

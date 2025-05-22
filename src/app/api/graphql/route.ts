@@ -4,36 +4,8 @@ import { ApolloServer } from '@apollo/server';
 import { startServerAndCreateNextHandler } from '@as-integrations/next'
 import { NextRequest } from 'next/server';
 import postgres from 'postgres';
-import { Resolvers } from '../../../types';
-import { exerciseData } from '@/app/lib/definitions';
-
-const resolvers = {
-    Query: {
-        getExercises: async (parent: any, args: any, context: any ) => { 
-            return await context.db<exerciseData[]>`SELECT * FROM public.exercises`
-        }
-    }
-}
-
-const typeDefs = `#graphql
-    type Exercise {
-        exercisename: String
-        force: String 
-        level: String 
-        mechanic: String 
-        equipment: String 
-        primaryMuscles: [String] 
-        secondaryMuscles: [String] 
-        instructions: [String] 
-        category: String 
-        images: [String] 
-        exerciseid: String
-    }
-
-    type Query {
-        getExercises: [Exercise]
-    }
-`;
+import { typeDefs } from './typedefs';
+import { resolvers } from './resolvers';
 
 const server = new ApolloServer({
     resolvers,

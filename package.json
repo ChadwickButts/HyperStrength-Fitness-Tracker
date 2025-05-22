@@ -10,6 +10,7 @@
     "generate": "graphql-codegen"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.8",
     "@apollo/server": "^4.12.1",
     "@as-integrations/next": "^3.2.0",
     "@emotion/cache": "^11.14.0",

@@ -2,6 +2,7 @@
 
 import { useEffect, Dispatch, useState, use } from 'react';
 import { exerciseData, exercisesAction } from '../lib/definitions';
+import { useQuery, gql } from '@apollo/client';
 
 import {
     Box,
@@ -11,13 +12,14 @@ import {
 } from '@mui/material';
 
 import AddCircle from '@mui/icons-material/AddCircle';
+import { Exercise } from '@/types';
 
-export default function AddExercise({ dispatchExercise, exerciseList }: { dispatchExercise: Dispatch<exercisesAction>, exerciseList: exerciseData[] | null }) {
+export default function AddExercise({ dispatchExercise }: { dispatchExercise: Dispatch<exercisesAction> }) {
     const [searchValue, setSearchValue] = useState('');
-    const [searchResults, setSearchResults] = useState<typeof exerciseList>([]);
+    const [searchResults, setSearchResults] = useState(Array<exerciseData>());
 
     const handleAddExercise = (exercise: exerciseData, ndx: number) => {
-        let exerciseDataAction = {
+        let exerciseDataAction: exercisesAction = {
             type: 'add',
             clientId: ndx,
             ...exercise
@@ -25,17 +27,30 @@ export default function AddExercise({ dispatchExercise, exerciseList }: { dispat
         dispatchExercise(exerciseDataAction);
     }
 
-    useEffect(() => {
-        let result: exerciseData[] | null = exerciseList?.filter(exercise => {
-            if (searchValue) {
-                return exercise.name.toLowerCase().includes(searchValue.toLowerCase());
-            } else {
-                return false;
+    const Get_Exercises = gql`#graphql
+        query Get_Exercises {
+            exercises {
+                exercisename
+                exerciseid
             }
-        })!;
+        }
+    `;
+    const { loading, error, data } = useQuery(Get_Exercises);
 
-        setSearchResults(result);
-    }, [searchValue])
+
+    useEffect(() => {
+        if (!loading) {
+            let result: exerciseData[] = data.exercises.filter((exercise: Exercise) => {
+                if (searchValue) {
+                    return exercise.exercisename.toLowerCase().includes(searchValue.toLowerCase().trim());
+                } else {
+                    return false;
+                }
+            })!;
+
+            setSearchResults(result);
+        }
+    }, [loading, searchValue])
 
 
     return <Stack spacing={2}>
@@ -57,11 +72,11 @@ export default function AddExercise({ dispatchExercise, exerciseList }: { dispat
         </FormControl>
         <Box overflow="scroll" maxHeight={300}>
         <List dense={true}>
-            {searchResults?.map((exer: exerciseData, ndx: number) => {
+            {searchResults?.map((exer: Exercise, ndx: number) => {
                 return <ListItem key={ndx} >
-                    <ListItemText>{exer.name}</ListItemText>
+                    <ListItemText>{exer.exercisename}</ListItemText>
                     <IconButton size='small' color='primary' onClick={() => {
-                        handleAddExercise(exer, ndx)
+                        handleAddExercise(exer as exerciseData, ndx)
                     }} >
                         <AddCircle />
                     </IconButton>

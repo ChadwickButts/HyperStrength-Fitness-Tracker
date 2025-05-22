@@ -5,6 +5,7 @@ import { addExercise } from "../../lib/actions";
 import { Box, Button, Card, CardContent, FormControl, Grid, InputLabel, OutlinedInput, Paper, Stack } from "@mui/material";
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { exerciseData } from "@/app/lib/definitions";
+import { gql, useQuery } from "@apollo/client";
 
 export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseData[] }) {
 
@@ -14,8 +15,29 @@ export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseDat
         setShowForm(!showForm);
     }
 
+    const Get_Exercises = gql`#graphql
+            query Get_Exercises {
+                exercises {
+                    exercisename
+                    force
+                    level
+                    mechanic
+                    equipment
+                    category
+                    exerciseid
+                }
+            }
+        `;
+
+    const { loading, error, data } = useQuery(Get_Exercises);
+
+    function getRowId(row: exerciseData) {
+        return row.exerciseid;
+    }
+
+
     const columns: GridColDef[] = [
-        { field: 'name', headerName: 'Name' },
+        { field: 'exercisename', headerName: 'Name' },
         { field: 'force', headerName: 'Force' },
         { field: 'level', headerName: 'Level' },
         { field: 'mechanic', headerName: 'Mechanic' },
@@ -25,7 +47,7 @@ export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseDat
         { field: 'instructions', headerName: 'Instructions' },
         { field: 'category', headerName: 'Category' },
         { field: 'images', headerName: 'Images' },
-        { field: 'id', headerName: 'Id' }
+        { field: 'exerciseid', headerName: 'id' }
     ]
 
     return (
@@ -55,7 +77,8 @@ export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseDat
             }
 
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <DataGrid rows={exerciseLib} columns={columns} />
+                {loading && <p>Exercises Loading...</p>}
+                {!loading && <DataGrid rows={data.exercises} columns={columns} getRowId={getRowId}/>}
             </Box>
         </Box>
     )
