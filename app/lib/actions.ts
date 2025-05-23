@@ -9,7 +9,7 @@ export async function addExercise(formData: FormData) {
 }
 
 export async function createWorkout(formData: FormData) {
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const supabase = createClient(cookieStore);
 
     let scheduledDate: string = formData.get('workoutDate')!.toString();

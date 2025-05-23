@@ -28,7 +28,7 @@ export default function AddExercise({ dispatchExercise, exerciseList }: { dispat
     useEffect(() => {
         let result: exerciseData[] | null = exerciseList?.filter(exercise => {
             if (searchValue) {
-                return exercise.name.toLowerCase().includes(searchValue.toLowerCase());
+                return exercise.exercisename.toLowerCase().includes(searchValue.toLowerCase());
             } else {
                 return false;
             }
@@ -59,7 +59,7 @@ export default function AddExercise({ dispatchExercise, exerciseList }: { dispat
         <List dense={true}>
             {searchResults?.map((exer: exerciseData, ndx: number) => {
                 return <ListItem key={ndx} >
-                    <ListItemText>{exer.name}</ListItemText>
+                    <ListItemText>{exer.exercisename}</ListItemText>
                     <IconButton size='small' color='primary' onClick={() => {
                         handleAddExercise(exer, ndx)
                     }} >
