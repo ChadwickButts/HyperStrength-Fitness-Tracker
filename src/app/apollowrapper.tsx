@@ -7,9 +7,9 @@ import React from 'react';
 export function ApolloWrapper({ children }: { children: React.ReactNode }) {
 
     const client = new ApolloClient({
-        uri: 'http://localhost:3000/api/graphql',
+        uri: '/api/graphql',
         headers: { 
-            'Access-Control-Allow-Origin': '*.vercel.app'
+            "Access-Control-Allow-Origin": "*.vercel.app"
         },
         cache: new InMemoryCache()
     });
