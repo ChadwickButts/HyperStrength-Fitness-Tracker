@@ -1,5 +1,6 @@
 
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { cookies } from "next/headers";
 
 export async function createCookieClient() {
@@ -30,15 +31,15 @@ export async function createCookieClient() {
  * * Must be called on server pages.
  * * Takes a cookie store created with next/headers cookies as an argument.
  * */
-export function createClientAll() {
-  const cookieStore = cookies();
+export async function createClientAll() {
+  const cookieStore = await cookies();
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        getAll() {
+        async getAll() {
           return cookieStore.getAll()
         },
         setAll(cookiesToSet) {
@@ -54,7 +55,7 @@ export function createClientAll() {
     })
 };
 
-export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
+export const createClient = (cookieStore: ReadonlyRequestCookies) => {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

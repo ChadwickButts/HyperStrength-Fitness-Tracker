@@ -13,7 +13,15 @@ export async function getExercisesClient() {
 }
 
 export async function getWorkoutsClient() {
-    const { data: workouts } = await supabaseClient.from('workouts').select();
+    const { data: workouts } = await supabaseClient.from('workouts').select().order('date', {
+        ascending: false
+    });
 
     return workouts;
+}
+
+// Server component request
+export async function getWorkoutExercises() {
+    const { data: workout_exercise_details } = await supabaseClient.from('workout_exercise_details').select();    
+    return workout_exercise_details ;
 }

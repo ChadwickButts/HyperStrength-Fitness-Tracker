@@ -94,7 +94,7 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData
                                                 <OutlinedInput label="Workout Name" name="workoutName" type="text" size="small" defaultValue={'Workout'} />
                                             </FormControl>
 
-                                            <input type="hidden" name="exercises" value={exercises.map(exercise => exercise.id).toString()} />
+                                            <input type="hidden" name="exercises" value={exercises.map(exercise => exercise.exerciseid).toString()} />
 
                                             <Box component="div" sx={{ py: 2 }}>
                                                 <Stack spacing={2} direction="row">
@@ -122,7 +122,7 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData
                                                         }> {
                                                             exercises?.map((exerciseObj: exerciseData, ndx: number) => {
                                                                 return <ListItem key={ndx}>
-                                                                    <ListItemText>{exerciseObj.name}</ListItemText>
+                                                                    <ListItemText>{exerciseObj.exercisename}</ListItemText>
                                                                     <IconButton size="small" color="error" onClick={() => {
                                                                         let exerciseAction = {
                                                                             type: 'delete',

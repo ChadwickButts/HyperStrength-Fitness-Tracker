@@ -1,14 +1,14 @@
 'use client'
 
 import React, { use, useReducer, useState } from "react";
-import { exercise, exerciseData, workout, workoutAction } from "../lib/definitions";
+import { exercise, exerciseData, workout, workout_exercises, workoutAction } from "../lib/definitions";
 import { Box, Card, CardContent, Grid, Paper, Stack, Tab, Tabs, Typography } from "@mui/material";
 import Workout from "./workout";
 import { CalendarIcon } from "@mui/x-date-pickers/icons";
 import dayjs from "dayjs";
 import PlanWorkout from "./plan-workout";
 
-export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workoutsLib: workout[], exerciseLib: exerciseData[] }) {
+export default function ScheduledWorkouts({ workoutsLib, exerciseLib, woExercises }: { workoutsLib: workout[], exerciseLib: exerciseData[], woExercises: workout_exercises[] }) {
 
     const [workouts, dispatchWorkouts] = useReducer(workoutsReducer, []);
     const [value, setValue] = useState(0);
@@ -48,8 +48,8 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
                                     workoutsLib?.map((workout: workout) => {
                                         if (dayjs(workout.date).isSame(dayjs().format('YYYY-MM-DD')) ||
                                             dayjs(workout.date).isAfter(dayjs().format('YYYY-MM-DD')))
-                                            return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
-                                                <Workout data={workout} exercises={exerciseLib} />
+                                            return <Box key={workout.workoutid} flexBasis={200} flexGrow={1} maxWidth={215}>
+                                                <Workout data={workout} woExercises={woExercises} />
                                             </Box>
                                     })
 
@@ -58,8 +58,8 @@ export default function ScheduledWorkouts({ workoutsLib, exerciseLib }: { workou
                                 {value === 1 &&
                                     workoutsLib?.map((workout: workout) => {
                                         if (dayjs(workout.date).isBefore(dayjs().format('YYYY-MM-DD')))
-                                            return <Box key={workout.id} flexBasis={200} flexGrow={1} maxWidth={215}>
-                                                <Workout data={workout} exercises={exerciseLib} />
+                                            return <Box key={workout.workoutid} flexBasis={200} flexGrow={1} maxWidth={215}>
+                                                <Workout data={workout} woExercises={woExercises} />
                                             </Box>
                                     })
                                 }

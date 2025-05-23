@@ -1,12 +1,11 @@
 
 import "./../app/app.css";
-import "@aws-amplify/ui-react/styles.css";
 import { scan } from "react-scan";
 import { Container,Grid } from "@mui/material";
 
 
 import { createClientAll } from '@/utils/supabase/server'
-import { getExercises, getWorkouts } from "@/utils/supabase/queries";
+import { getExercises, getWorkouts, getWorkoutExercises } from "@/utils/supabase/queries";
 import ScheduledWorkouts from "./ui/scheduled-workouts";
 import Welcome from "./ui/welcome";
 
@@ -19,17 +18,18 @@ if (typeof window !== 'undefined') {
 
 export default async function App() {
 
-  const supabase = createClientAll();
-  const [exercisesLibrary, scheduledWorkoutsLibrary] = await Promise.all([
+  const supabase = await createClientAll();
+  const [exercisesLibrary, scheduledWorkoutsLibrary, workoutExercises] = await Promise.all([
     getExercises(supabase),
-    getWorkouts(supabase)
+    getWorkouts(supabase),
+    getWorkoutExercises(supabase)
   ]);
 
   return (
       <Container disableGutters sx={{ p: 1, mt: 1 }}>
         <Grid container spacing={1} >
           <Grid size={{ sm: 12, md: 8 }}>
-            <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary || []} exerciseLib={exercisesLibrary || []} />
+            <ScheduledWorkouts workoutsLib={scheduledWorkoutsLibrary || []} exerciseLib={exercisesLibrary || []} woExercises={workoutExercises || []} />
           </Grid>
           <Grid size={{ sm: 12, md: 4 }}>
             <Welcome />

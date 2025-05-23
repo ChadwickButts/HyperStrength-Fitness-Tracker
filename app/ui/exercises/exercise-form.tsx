@@ -15,7 +15,7 @@ export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseDat
     }
 
     const columns: GridColDef[] = [
-        { field: 'name', headerName: 'Name' },
+        { field: 'exercisename', headerName: 'Name' },
         { field: 'force', headerName: 'Force' },
         { field: 'level', headerName: 'Level' },
         { field: 'mechanic', headerName: 'Mechanic' },
@@ -25,8 +25,12 @@ export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseDat
         { field: 'instructions', headerName: 'Instructions' },
         { field: 'category', headerName: 'Category' },
         { field: 'images', headerName: 'Images' },
-        { field: 'id', headerName: 'Id' }
+        { field: 'exerciseid', headerName: 'Id' }
     ]
+
+    function getRowId(row: exerciseData) {
+        return row.exerciseid
+    }
 
     return (
         <Box >
@@ -55,7 +59,7 @@ export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseDat
             }
 
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <DataGrid rows={exerciseLib} columns={columns} />
+                <DataGrid rows={exerciseLib} columns={columns} getRowId={getRowId} />
             </Box>
         </Box>
     )

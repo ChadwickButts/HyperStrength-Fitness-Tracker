@@ -8,7 +8,8 @@ export type exercise = {
 }
 
 export type exerciseData = {
-    name: string,
+    exercisename: string,
+    exerciseid: string
     force: string | null,
     level: string | null,
     mechanic: string | null,
@@ -18,7 +19,6 @@ export type exerciseData = {
     instructions: Array<string> | null,
     category: string | null,
     images: Array<string> | null,
-    id: string
 }
 
 export type exercisesAction = exerciseData & { 
@@ -27,12 +27,13 @@ export type exercisesAction = exerciseData & {
 }
 
 export type workout = {
-    id: string,
-    name: string,
-    date: string,
-    exercises: string[],
+    workoutid: string,
+    workoutname: string,
+    date: string
     tracked: boolean
 }
+
+export type workout_exercises = exerciseData & workout;
 
 export type workoutAction = workout & {
     type: string
