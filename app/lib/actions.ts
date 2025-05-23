@@ -18,7 +18,7 @@ export async function createWorkout(formData: FormData) {
         .from('workouts')
         .insert([
             { 
-                name: formData.get('workoutName')?.toString(),
+                exercisename: formData.get('workoutName')?.toString(),
                 date: dayjs(scheduledDate).format('YYYY-MM-DD HH:mm:ss').toString(),
                 exercises: formData.get('exercises')?.toString().split(','),
                 tracked: false
