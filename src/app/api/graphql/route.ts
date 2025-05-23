@@ -6,7 +6,6 @@ import { NextRequest } from 'next/server';
 import postgres from 'postgres';
 import { typeDefs } from './typedefs';
 import { resolvers } from './resolvers';
-import { headers } from 'next/headers';
 
 const server = new ApolloServer({
     resolvers,
@@ -16,7 +15,7 @@ const server = new ApolloServer({
 // https://www.apollographql.com/docs/apollo-server/v3/data/resolvers#the-context-argument
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
     context: async (req, res) => ({
-        db: await postgres(process.env.PG_URL!)
+        db: await postgres(process.env.NEXT_PUBLIC_PG_URL!)
     })
 });
 
