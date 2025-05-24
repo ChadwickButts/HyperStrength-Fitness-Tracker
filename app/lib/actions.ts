@@ -13,12 +13,11 @@ export async function createWorkout(formData: FormData) {
     const supabase = createClient(cookieStore);
 
     let scheduledDate: string = formData.get('workoutDate')!.toString();
-
     const { data, error } = await supabase
         .from('workouts')
         .insert([
             { 
-                exercisename: formData.get('workoutName')?.toString(),
+                workoutname: formData.get('workoutName')?.toString(),
                 date: dayjs(scheduledDate).format('YYYY-MM-DD HH:mm:ss').toString(),
                 exercises: formData.get('exercises')?.toString().split(','),
                 tracked: false
