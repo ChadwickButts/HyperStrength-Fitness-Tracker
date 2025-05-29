@@ -1,34 +1,34 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.0.6">
   <diagram name="Page-1" id="KfpDNYi_QA_BK_UhjR7k">
-    <mxGraphModel dx="783" dy="1096" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1356" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-1" value="&lt;b&gt;&lt;u&gt;Auth0/OAuth&lt;/u&gt;&lt;/b&gt; to Authenticate users for Sign In" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-1" value="&lt;b&gt;&lt;u&gt;Auth0/OAuth&lt;/u&gt;&lt;/b&gt; to Authenticate users for Sign In" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;" parent="1" vertex="1">
           <mxGeometry x="40" y="80" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-2" value="&lt;b&gt;&lt;u&gt;NodeJS&lt;/u&gt;&lt;/b&gt; server to run ExpressJS API" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-2" value="&lt;b&gt;&lt;u&gt;NodeJS&lt;/u&gt;&lt;/b&gt; server to run ExpressJS API" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="200" y="80" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-3" value="&lt;b&gt;&lt;u&gt;Database&lt;/u&gt;&lt;/b&gt; to store exercise, workout, user data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-3" value="&lt;b&gt;&lt;u&gt;Database&lt;/u&gt;&lt;/b&gt; to store exercise, workout, user data" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="200" y="160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-4" value="&lt;b&gt;&lt;u&gt;ExpressJS API&lt;/u&gt;&lt;/b&gt; to retrieve data from database" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-4" value="&lt;b&gt;&lt;u&gt;Apollo Server/ExpressJS API&lt;/u&gt;&lt;/b&gt; to retrieve data from database" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="200" y="240" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-5" value="&lt;b&gt;&lt;u&gt;GraphQL&lt;/u&gt;&lt;/b&gt; to simplify API calls" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-5" value="&lt;b&gt;&lt;u&gt;GraphQL&lt;/u&gt;&lt;/b&gt; to simplify API calls" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" y="80" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-6" value="&lt;b&gt;&lt;u&gt;React/NextJS&lt;/u&gt;&lt;/b&gt; to define functionality for frontend" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-6" value="&lt;b&gt;&lt;u&gt;React/NextJS&lt;/u&gt;&lt;/b&gt; to define functionality for frontend" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="520" y="80" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-7" value="&lt;b&gt;&lt;u&gt;Material UI&lt;/u&gt;&lt;/b&gt; for frontend design" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-7" value="&lt;b&gt;&lt;u&gt;Material UI&lt;/u&gt;&lt;/b&gt; for frontend design" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="520" y="160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-8" value="&lt;b&gt;&lt;u&gt;Tailwind CSS&lt;/u&gt;&lt;/b&gt; for enhanced custom UI design" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-8" value="&lt;b&gt;&lt;u&gt;Tailwind CSS&lt;/u&gt;&lt;/b&gt; for enhanced custom UI design" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="520" y="240" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FRpTC7vi2lt-575fA4Gs-9" value="&lt;b&gt;&lt;u&gt;Apollo&lt;/u&gt;&lt;/b&gt; to simplify making GraphQL requests" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="FRpTC7vi2lt-575fA4Gs-9" value="&lt;b&gt;&lt;u&gt;Apollo&lt;/u&gt;&lt;/b&gt; to simplify making GraphQL requests" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="360" y="160" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
