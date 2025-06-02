@@ -9,6 +9,11 @@ The app is built on the following technology:
 - Supabase
 - MaterialUI
 
+main-graphql uses the following technology in addition to what is above:
+- Apollo Client
+- Apollo Server
+- GraphQL
+
 
 
 
