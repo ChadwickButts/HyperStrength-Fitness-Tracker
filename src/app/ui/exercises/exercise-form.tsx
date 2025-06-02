@@ -7,7 +7,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { exerciseData } from "@/app/lib/definitions";
 import { gql, useQuery } from "@apollo/client";
 
-export default function ExerciseForm({ exerciseLib }: { exerciseLib: exerciseData[] }) {
+export default function ExerciseForm() {
 
     const [showForm, setShowForm] = useState(false);
 
