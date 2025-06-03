@@ -1,7 +1,7 @@
 'use client'
 
 import React, { use, useReducer, useState } from "react";
-import { exercise, exerciseData, workout, workoutAction } from "../lib/definitions";
+import { exercise, exerciseData, workout, workoutAction } from "../../lib/definitions";
 import { Box, Card, CardContent, Grid, Paper, Stack, Tab, Tabs, Typography } from "@mui/material";
 import WorkoutCard from "./workout";
 import { CalendarIcon } from "@mui/x-date-pickers/icons";

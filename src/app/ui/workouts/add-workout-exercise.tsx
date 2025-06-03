@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, Dispatch, useState, use } from 'react';
-import { exerciseData, exercisesAction } from '../lib/definitions';
+import { exerciseData, exercisesAction } from '../../lib/definitions';
 import { useQuery, gql } from '@apollo/client';
 
 import {
@@ -14,7 +14,7 @@ import {
 import AddCircle from '@mui/icons-material/AddCircle';
 import { Exercise } from '@/types';
 
-export default function AddExercise({ dispatchExercise }: { dispatchExercise: Dispatch<exercisesAction> }) {
+export default function AddWorkoutExercise({ dispatchExercise }: { dispatchExercise: Dispatch<exercisesAction> }) {
     const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState(Array<exerciseData>());
 

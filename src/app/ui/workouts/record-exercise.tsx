@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useState } from "react";
 
-export default function ExerciseLoadIntensityForm(props: { exerciseDispatch: any }) {
+export default function RecordExerciseForm(props: { exerciseDispatch: any }) {
 
     const [exercise, setExercise] = useState({
         exerciseName: '',

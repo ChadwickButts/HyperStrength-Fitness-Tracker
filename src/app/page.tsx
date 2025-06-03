@@ -5,7 +5,7 @@ import { createClientAll } from '../utils/supabase/server'
 import { getExercises, getWorkouts } from "../utils/supabase/queries";
 
 import { Container, Grid } from "@mui/material";
-import ScheduledWorkouts from "./ui/scheduled-workouts";
+import ScheduledWorkouts from "./ui/workouts/scheduled-workouts";
 import Welcome from "./ui/welcome";
 
 

@@ -1,10 +1,10 @@
 'use client'
 
 import { useReducer, useState, useRef, LegacyRef, Usable } from "react";
-import { exerciseData, exercisesAction, workout, workoutAction } from "../lib/definitions";
-import AddExercise from "./add-exercise";
+import { exerciseData, exercisesAction, workout, workoutAction } from "../../lib/definitions";
+import AddWorkoutExercise from "./add-workout-exercise";
 import { gql, useQuery } from "@apollo/client";
-import ExerciseLoadIntensityForm from "./exercise-load-intensity-form";
+import ExerciseLoadIntensityForm from "./record-exercise";
 import Workout from "./workout";
 
 import {
@@ -17,7 +17,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
-import { createWorkout } from "../lib/actions";
+import { createWorkout } from "../../lib/actions";
 import { Close } from "@mui/icons-material";
 //import { addWorkout } from "../lib/api/exercises";
 
@@ -105,7 +105,7 @@ export default function PlanWorkout() {
                                             </Box>
                                         </form>
 
-                                        {showAddExercise && <AddExercise dispatchExercise={exercisesDispatch} />}
+                                        {showAddExercise && <AddWorkoutExercise dispatchExercise={exercisesDispatch} />}
                                     </Grid>
                                     <Grid size={6}>
                                         {

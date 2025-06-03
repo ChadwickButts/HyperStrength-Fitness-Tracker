@@ -1,7 +1,7 @@
 'use client'
 
 import { use, useEffect, useState } from "react"
-import { exercise, exerciseData, workout } from "../lib/definitions"
+import { exercise, exerciseData, workout } from "../../lib/definitions"
 import { useQuery, gql } from "@apollo/client";
 
 import { ExpandMore } from '@mui/icons-material';
