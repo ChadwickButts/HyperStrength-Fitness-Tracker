@@ -7,6 +7,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { createSession } from "./session";
 
 
 export async function addExercise(formData: FormData) {
@@ -101,15 +102,8 @@ export async function loginUser(initialState: any, formData: FormData) {
     const isValidLogin = await bcrypt.compare(password, userData.data![0].password);
 
     if (isValidLogin) {
-         const token = jwt.sign({
-                id: userData.data![0].id,
-                email
-            }, process.env.JWT_SECRET!, {expiresIn: '2d'});
-
-            return {
-                status: 200,
-                token: token
-            };
+            createSession(userData.data![0].id)
+            redirect('/account')
     } else {
         return {
             status: 401,
