@@ -3,6 +3,7 @@
 import { createClient } from "@/utils/supabase/server"
 import { cookies } from 'next/headers'
 import dayjs from "dayjs";
+import { redirect } from "next/navigation";
 
 export async function addExercise(formData: FormData) {
     console.log(formData) 
@@ -24,5 +25,5 @@ export async function createWorkout(formData: FormData) {
             }
         ]).select();
 
-        return data;
+        redirect('/');
 }

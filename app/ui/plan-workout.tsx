@@ -43,9 +43,9 @@ export default function PlanWorkout({ exerciseLib }: { exerciseLib: exerciseData
             ...exercises[0]
         };
         exercisesDispatch(action);
-
         setShowAddExercise(false);
         formRef.current?.reset();
+        handlePlanWorkoutClick();
     }
 
     const handleShowAddExercise = () => {
