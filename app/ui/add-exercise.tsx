@@ -13,8 +13,8 @@ import {
 import AddCircle from '@mui/icons-material/AddCircle';
 
 export default function AddExercise({ dispatchExercise, exerciseList }: { dispatchExercise: Dispatch<exercisesAction>, exerciseList: exerciseData[] | null }) {
-    const [searchValue, setSearchValue] = useState('');
-    const [searchResults, setSearchResults] = useState<typeof exerciseList>([]);
+    const [searchValue, setSearchValue] = useState<string>('');
+    const [searchResults, setSearchResults] = useState<exerciseData[]>([]);
 
     const handleAddExercise = (exercise: exerciseData, ndx: number) => {
         let exerciseDataAction = {
