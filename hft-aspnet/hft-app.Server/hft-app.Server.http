@@ -1,0 +1,36 @@
+@hft_app.Server_HostAddress = http://localhost:5155
+
+GET {{hft_app.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{hft-app.Server_HostAddress}}/api/workouts
+
+###
+
+DELETE {{hft-app.Server_HostAddress}}/api/workouts/{id}
+
+###
+
+GET {{hft-app.Server_HostAddress}}/api/workouts/{id}
+
+###
+
+PUT {{hft-app.Server_HostAddress}}/api/workouts/{id}
+Content-Type: application/json
+
+{
+  //Guid
+}
+
+###
+
+POST {{hft-app.Server_HostAddress}}/api/workouts
+Content-Type: application/json
+
+{
+  //Workout
+}
+
+###

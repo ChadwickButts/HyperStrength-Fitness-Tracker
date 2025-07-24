@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "hft-app.client\\hft-app.client.esproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "hft-app.Server\\hft-app.Server.csproj",
+        "Action": "Start",
+        "DebugTarget": "Container (Dockerfile)"
+      }
+    ]
+  }
+]

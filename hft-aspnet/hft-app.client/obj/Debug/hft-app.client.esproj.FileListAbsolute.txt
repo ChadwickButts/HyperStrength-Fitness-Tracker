@@ -1,0 +1,2 @@
+C:\Users\chadw\Documents\Projects\Repos\hft-app\hft-app.client\obj\Debug\hft-app.client.esproj.CoreCompileInputs.cache
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.client\obj\Debug\hft-app.client.esproj.CoreCompileInputs.cache

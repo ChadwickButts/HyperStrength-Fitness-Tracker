@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:49579",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\..\\hft-app.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
