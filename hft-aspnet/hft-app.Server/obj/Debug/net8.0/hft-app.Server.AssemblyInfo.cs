@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("hft-app.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+142ea98fd5a11147d325f46535f228bd9e6c0d55")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69db672a8c92b69a26f4d185bfcec8350fb45020")]
 [assembly: System.Reflection.AssemblyProductAttribute("hft-app.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("hft-app.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

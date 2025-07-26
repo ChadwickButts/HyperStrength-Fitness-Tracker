@@ -1,25 +1,33 @@
 import React from 'react';
 
-import { useEffect, useState } from 'react';
-import { Box, CssBaseline, ThemeProvider, Toolbar } from '@mui/material';
-import DatePickerLocalization from "./DatePickerLocalization";
-import './App.css';
+import DatePickerLocalization from "./DatePickerLocalization"
+import { store } from "./store"
+import { Box, CssBaseline, ThemeProvider, Toolbar } from "@mui/material"
+import { Provider } from "react-redux"
+import CustomDrawer from "./components/app-layout/drawer"
 import Dashboard from "./components/dashboard/Dashboard"
-import theme from './theme';
+import theme from "./theme"
 
 function App() {
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Box sx={{ display: 'flex' }}>
-                <Box component="main" sx={{ flexGrow: 1 }}>
-                    <Toolbar variant="dense" />
-                    <DatePickerLocalization>
-                        <Dashboard />
-                    </DatePickerLocalization>
-                </Box>
-            </Box>
-        </ThemeProvider>
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <div>
+                    <CssBaseline />
+                    <Box sx={{ display: 'flex' }}>
+                        <CustomDrawer />
+                        <Box component="main" sx={{
+                            flexGrow: 1
+                        }}>
+                            <Toolbar variant="dense" />
+                            <DatePickerLocalization>
+                                <Dashboard />
+                            </DatePickerLocalization>
+                        </Box>
+                    </Box>
+                </div>
+            </ThemeProvider>
+        </Provider>
     );
 }
 

@@ -11,7 +11,4 @@
   <ItemGroup>
     <None Remove=".env" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\components\app-layout\" />
-  </ItemGroup>
 </Project>
