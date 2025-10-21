@@ -25,8 +25,9 @@ export default async function Page() {
                 <Paper>
                     <Card sx={{ p: 2 }}>
                         <CardContent>
-                            This site is devoted to the book, Science of Strength Training: 
-                            Understand the Anatomy and Physiology to Change Your Life
+                            This app is meant to be my implementation of the science and methods for effective strength training 
+                            and weight loss as discussed in the book, Science of Strength Training: Understand the 
+                            anatomy and physiology to transform your body by Austin Current.
                         </CardContent>
                     </Card>
                 </Paper>
