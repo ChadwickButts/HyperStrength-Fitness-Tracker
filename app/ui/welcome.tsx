@@ -7,8 +7,9 @@ export default function Welcome() {
         <Card>
             <CardContent >
                 <Typography variant="body2">
-                    This site is a companion for the book, Science of Strength Training:
-                    Understand the Anatomy and Physiology to Change Your Life
+                   This app is meant to be my implementation of the science and methods for effective strength training 
+                   and weight loss as discussed in the book, Science of Strength Training: Understand the 
+                   anatomy and physiology to transform your body by Austin Current.
                 </Typography> 
             </CardContent>
         </Card>
