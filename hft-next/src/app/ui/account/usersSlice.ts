@@ -9,7 +9,7 @@ export interface UserState {
 const initialState: UserState = {
     userid: 0,
     email: 'anon',
-    name: 'Anon user'
+    name: 'Anon User'
 }
 
 export const userSlice = createSlice({

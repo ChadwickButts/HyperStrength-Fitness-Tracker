@@ -3,48 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|solutionrelative:hft-app.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.server\\controllers\\workoutexercisedetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|solutionrelative:hft-app.server\\controllers\\workoutexercisedetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\store.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\store.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.server\\models\\workoutexercisedetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|solutionrelative:hft-app.server\\models\\workoutexercisedetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\tabslice.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\components\\app-layout\\tabslice.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.server\\data\\hftdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|solutionrelative:hft-app.server\\data\\hftdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\drawer-nav-links.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\components\\app-layout\\drawer-nav-links.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\lib\\query.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\lib\\query.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\account\\userslice.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\components\\account\\userslice.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.server\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|solutionrelative:hft-app.server\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\drawer.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\components\\app-layout\\drawer.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\workouts\\scheduledworkouts.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\components\\workouts\\scheduledworkouts.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\app.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\workouts\\workout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
+      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\components\\workouts\\workout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\dashboard\\welcome.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\components\\dashboard\\welcome.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\.vscode\\launch.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\.vscode\\launch.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BE115439-2916-4769-99C3-596F223CC229}|hft-app.Server\\hft-app.Server.csproj|solutionrelative:hft-app.server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|c:\\users\\chadw\\documents\\projects\\repos\\hft\\hft-aspnet\\hft-app.client\\src\\lib\\types.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{13F90E2F-E264-30B3-B32B-53A0021F2A84}|hft-app.client\\hft-app.client.esproj|solutionrelative:hft-app.client\\src\\lib\\types.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,148 +42,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "tabslice.ts",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\tabslice.ts",
-              "RelativeDocumentMoniker": "hft-app.client\\src\\components\\app-layout\\tabslice.ts",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\tabslice.ts",
-              "RelativeToolTip": "hft-app.client\\src\\components\\app-layout\\tabslice.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-07-24T19:38:49.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.tsx",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\App.tsx",
-              "RelativeDocumentMoniker": "hft-app.client\\src\\App.tsx",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\App.tsx",
-              "RelativeToolTip": "hft-app.client\\src\\App.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-07-24T18:20:21.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "userslice.ts",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\account\\userslice.ts",
-              "RelativeDocumentMoniker": "hft-app.client\\src\\components\\account\\userslice.ts",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\account\\userslice.ts",
-              "RelativeToolTip": "hft-app.client\\src\\components\\account\\userslice.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-07-24T18:20:03.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "store.ts",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\store.ts",
-              "RelativeDocumentMoniker": "hft-app.client\\src\\store.ts",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\store.ts",
-              "RelativeToolTip": "hft-app.client\\src\\store.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-07-24T18:18:49.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "drawer.tsx",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\drawer.tsx",
-              "RelativeDocumentMoniker": "hft-app.client\\src\\components\\app-layout\\drawer.tsx",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\drawer.tsx",
-              "RelativeToolTip": "hft-app.client\\src\\components\\app-layout\\drawer.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-07-24T17:59:29.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "drawer-nav-links.tsx",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\drawer-nav-links.tsx",
-              "RelativeDocumentMoniker": "hft-app.client\\src\\components\\app-layout\\drawer-nav-links.tsx",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\app-layout\\drawer-nav-links.tsx",
-              "RelativeToolTip": "hft-app.client\\src\\components\\app-layout\\drawer-nav-links.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-07-24T16:58:56.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Welcome.tsx",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\dashboard\\Welcome.tsx",
-              "RelativeDocumentMoniker": "hft-app.client\\src\\components\\dashboard\\Welcome.tsx",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\dashboard\\Welcome.tsx",
-              "RelativeToolTip": "hft-app.client\\src\\components\\dashboard\\Welcome.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Title": "types.ts",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\lib\\types.ts",
+              "RelativeDocumentMoniker": "hft-app.client\\src\\lib\\types.ts",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\lib\\types.ts",
+              "RelativeToolTip": "hft-app.client\\src\\lib\\types.ts",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-07-23T00:38:52.723Z",
+              "WhenOpened": "2025-07-28T17:39:35.671Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Program.cs",
-              "RelativeDocumentMoniker": "hft-app.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Program.cs",
-              "RelativeToolTip": "hft-app.Server\\Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAjwCsAAAAAAAAAAAAAAA==",
+              "Title": "WorkoutExerciseDetailsController.cs",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Controllers\\WorkoutExerciseDetailsController.cs",
+              "RelativeDocumentMoniker": "hft-app.Server\\Controllers\\WorkoutExerciseDetailsController.cs",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Controllers\\WorkoutExerciseDetailsController.cs",
+              "RelativeToolTip": "hft-app.Server\\Controllers\\WorkoutExerciseDetailsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T00:38:09.113Z",
+              "WhenOpened": "2025-07-28T17:26:45.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "vite.config.js",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\vite.config.js",
-              "RelativeDocumentMoniker": "hft-app.client\\vite.config.js",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\vite.config.js",
-              "RelativeToolTip": "hft-app.client\\vite.config.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-23T00:31:17.194Z",
+              "DocumentIndex": 1,
+              "Title": "WorkoutExerciseDetails.cs",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Models\\WorkoutExerciseDetails.cs",
+              "RelativeDocumentMoniker": "hft-app.Server\\Models\\WorkoutExerciseDetails.cs",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Models\\WorkoutExerciseDetails.cs",
+              "RelativeToolTip": "hft-app.Server\\Models\\WorkoutExerciseDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T17:03:55.232Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "hft-app.Server\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Properties\\launchSettings.json",
-              "RelativeToolTip": "hft-app.Server\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-23T00:26:32.407Z"
+              "DocumentIndex": 2,
+              "Title": "HftDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Data\\HftDbContext.cs",
+              "RelativeDocumentMoniker": "hft-app.Server\\Data\\HftDbContext.cs",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Data\\HftDbContext.cs",
+              "RelativeToolTip": "hft-app.Server\\Data\\HftDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:59:35.092Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "launch.json",
-              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\.vscode\\launch.json",
-              "RelativeDocumentMoniker": "hft-app.client\\.vscode\\launch.json",
-              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\.vscode\\launch.json",
-              "RelativeToolTip": "hft-app.client\\.vscode\\launch.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-23T00:24:12.311Z",
+              "DocumentIndex": 3,
+              "Title": "query.ts",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\lib\\query.ts",
+              "RelativeDocumentMoniker": "hft-app.client\\src\\lib\\query.ts",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\lib\\query.ts",
+              "RelativeToolTip": "hft-app.client\\src\\lib\\query.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-07-28T15:34:40.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExercisesController.cs",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Controllers\\ExercisesController.cs",
+              "RelativeDocumentMoniker": "hft-app.Server\\Controllers\\ExercisesController.cs",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.Server\\Controllers\\ExercisesController.cs",
+              "RelativeToolTip": "hft-app.Server\\Controllers\\ExercisesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T05:42:06.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "scheduledworkouts.tsx",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\workouts\\scheduledworkouts.tsx",
+              "RelativeDocumentMoniker": "hft-app.client\\src\\components\\workouts\\scheduledworkouts.tsx",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\workouts\\scheduledworkouts.tsx",
+              "RelativeToolTip": "hft-app.client\\src\\components\\workouts\\scheduledworkouts.tsx",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwEQAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-07-28T05:21:13.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "workout.tsx",
+              "DocumentMoniker": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\workouts\\workout.tsx",
+              "RelativeDocumentMoniker": "hft-app.client\\src\\components\\workouts\\workout.tsx",
+              "ToolTip": "C:\\Users\\chadw\\Documents\\Projects\\Repos\\hft\\hft-aspnet\\hft-app.client\\src\\components\\workouts\\workout.tsx",
+              "RelativeToolTip": "hft-app.client\\src\\components\\workouts\\workout.tsx",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-07-28T05:00:27.751Z",
               "EditorCaption": ""
             }
           ]

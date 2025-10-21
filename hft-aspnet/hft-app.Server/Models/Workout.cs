@@ -14,5 +14,6 @@ namespace hft_app.Server.Models
         public DateTime date { get; set; }
         [Required]
         public bool tracked { get; set; }
+        public int userid { get; set; }
     }
 }

@@ -15,10 +15,11 @@ namespace hft_app.Server.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<WorkoutExercise>>> GetWorkoutExercises()
+        // GET: api/WorkoutExercises/5
+        [HttpGet("{workoutId}")]
+        public async Task<ActionResult<IEnumerable<WorkoutExercise>>> GetWorkoutExercises(string workoutId)
         {
-            return await _context.WorkoutExercises.ToListAsync();
+            return await _context.WorkoutExercises.Where(workout => workout.workout_id.ToString() == workoutId).ToListAsync();
         }
     }
 }

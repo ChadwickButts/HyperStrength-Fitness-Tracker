@@ -42,6 +42,20 @@ namespace hft_app.Server.Controllers
             return workout;
         }
 
+        // GET: api/Workouts/5
+        [HttpGet("user/{userid}")]
+        public async Task<ActionResult<IEnumerable<Workout>>> GetWorkoutByUser(int userid)
+        {
+            var workouts = await _context.Workouts.Where(workout => workout.userid == userid).ToListAsync();
+
+            if (workouts == null)
+            {
+                return NotFound();
+            }
+
+            return workouts;
+        }
+
         // PUT: api/Workouts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

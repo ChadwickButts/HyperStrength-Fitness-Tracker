@@ -1,0 +1,8 @@
+.links a {
+    background-color: peachpuff;
+    text-align: left;
+}
+
+.links a:hover {
+    background-color: lightgray;
+}

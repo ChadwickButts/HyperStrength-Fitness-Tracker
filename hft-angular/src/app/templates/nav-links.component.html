@@ -1,0 +1,5 @@
+<nav class="nav flex-sm-column flex-sm-row links">
+    @for (link of links; track link.linkId) {
+        <a class="flex-sm-fill nav-link" aria-current="page" href={{link.href}}>{{link.name}}</a>
+    }
+</nav>
