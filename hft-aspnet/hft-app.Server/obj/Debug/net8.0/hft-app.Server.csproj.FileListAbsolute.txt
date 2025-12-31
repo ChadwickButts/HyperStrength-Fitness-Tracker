@@ -574,10 +574,16 @@ C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\hft-app..75ACFC1B.Up2Date
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\hft-app.Server.dll
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\refint\hft-app.Server.dll
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\hft-app.Server.pdb
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\hft-app.Server.genruntimeconfig.cache
 C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\ref\hft-app.Server.dll
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\chadw\Documents\Projects\Repos\hft\hft-aspnet\hft-app.Server\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll

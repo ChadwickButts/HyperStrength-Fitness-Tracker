@@ -14,14 +14,17 @@ if (builder.Configuration.GetValue<bool>("useSqlServer"))
 {
     builder.Services.AddDbContext<HftDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConn")));
-}
-else
+} else if (builder.Configuration.GetValue<bool>("UseSupabase"))
+{
+    builder.Services.AddDbContext<HftDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("SupabaseConn")));
+} else 
 {
     builder.Services.AddDbContext<HftDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConn")));
-}
+} 
 
-var app = builder.Build();
+    var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

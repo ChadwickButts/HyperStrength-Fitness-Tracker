@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("0ce531e5-37ab-40d6-9e92-d98211099e53")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("hft-app.Server")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69db672a8c92b69a26f4d185bfcec8350fb45020")]
 [assembly: System.Reflection.AssemblyProductAttribute("hft-app.Server")]
