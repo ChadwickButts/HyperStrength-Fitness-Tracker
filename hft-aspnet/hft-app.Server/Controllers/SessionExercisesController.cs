@@ -7,18 +7,18 @@ namespace hft_app.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkoutExercisesController : Controller
+    public class SessionExercisesController : Controller
     {
         public HftDbContext _context;
-        public WorkoutExercisesController(HftDbContext context)
+        public SessionExercisesController(HftDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<WorkoutExercise>>> GetWorkoutExercises()
+        public async Task<ActionResult<IEnumerable<SessionExercise>>> GetSessionExercises()
         {
-            return await _context.WorkoutExercises.ToListAsync();
+            return await _context.SessionExercises.ToListAsync();
         }
     }
 }

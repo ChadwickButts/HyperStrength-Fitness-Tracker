@@ -9,8 +9,8 @@ namespace hft_app.Server.Data
         {
         }
 
-        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<Session> Sessions { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
-        public DbSet<WorkoutExercise> WorkoutExercises { get; set; }
+        public DbSet<SessionExercise> SessionExercises { get; set; }
     }
 }

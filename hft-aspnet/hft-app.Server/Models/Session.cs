@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hft_app.Server.Models
 {
-    [Table("workouts")]
-    public class Workout
+    [Table("sessions")]
+    public class Session
     {
         [Required]
-        public Guid workoutid { get; set; }
+        public Guid sessionid { get; set; }
         [Required]
-        public required string workoutname { get; set; }
+        public required string sessionname { get; set; }
         [Required]
-        public DateTime date { get; set; }
+        public DateTime sessiondate { get; set; }
         [Required]
         public bool tracked { get; set; }
     }

@@ -12,47 +12,47 @@ namespace hft_app.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkoutsController : ControllerBase
+    public class SessionsController : ControllerBase
     {
         private readonly HftDbContext _context;
 
-        public WorkoutsController(HftDbContext context)
+        public SessionsController(HftDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Workouts
+        // GET: api/Sessions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Workout>>> GetWorkouts()
+        public async Task<ActionResult<IEnumerable<Session>>> GetSessions()
         {
-            return await _context.Workouts.ToListAsync();
+            return await _context.Sessions.ToListAsync();
         }
 
-        // GET: api/Workouts/5
+        // GET: api/Sessions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Workout>> GetWorkout(Guid id)
+        public async Task<ActionResult<Session>> GetSession(Guid id)
         {
-            var workout = await _context.Workouts.FindAsync(id);
+            var session = await _context.Sessions.FindAsync(id);
 
-            if (workout == null)
+            if (session == null)
             {
                 return NotFound();
             }
 
-            return workout;
+            return session;
         }
 
         // PUT: api/Workouts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutWorkout(Guid id, Workout workout)
+        public async Task<IActionResult> PutSession(Guid id, Session session)
         {
-            if (id != workout.workoutid)
+            if (id != session.sessionid)
             {
                 return BadRequest();
             }
 
-            _context.Entry(workout).State = EntityState.Modified;
+            _context.Entry(session).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace hft_app.Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!WorkoutExists(id))
+                if (!SessionExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace hft_app.Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Workouts
+        // POST: api/Sessions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Workout>> PostWorkout(Workout workout)
+        public async Task<ActionResult<Session>> PostSession(Session session)
         {
-            _context.Workouts.Add(workout);
+            _context.Sessions.Add(session);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWorkout", new { id = workout.workoutid }, workout);
+            return CreatedAtAction("GetWorkout", new { id = session.sessionid }, session);
         }
 
-        // DELETE: api/Workouts/5
+        // DELETE: api/Sessions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteWorkout(Guid id)
+        public async Task<IActionResult> DeleteSession(Guid id)
         {
-            var workout = await _context.Workouts.FindAsync(id);
-            if (workout == null)
+            var session = await _context.Sessions.FindAsync(id);
+            if (session == null)
             {
                 return NotFound();
             }
 
-            _context.Workouts.Remove(workout);
+            _context.Sessions.Remove(session);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool WorkoutExists(Guid id)
+        private bool SessionExists(Guid id)
         {
-            return _context.Workouts.Any(e => e.workoutid == id);
+            return _context.Sessions.Any(e => e.sessionid == id);
         }
     }
 }
